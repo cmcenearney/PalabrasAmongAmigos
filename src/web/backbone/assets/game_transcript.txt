@@ -1,0 +1,714 @@
+WELCOME TO TERMS WITH CHUMS!
+How many players? (1-4)
+3
+Enter name for player 1:
+Larry
+Enter name for player 2:
+Moe
+Enter name for player 3:
+Curly
+OK, let's play.
+
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  _  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  _  _  _ [=] _  _  _  =  _  _ [≡]
+ I  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _ [=] _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 0
+Moe: 0
+Curly: 0
+Larry, it's your move. Tiles: [ M E Z E R R A ]
+h,5,>,raze
+Well done, that move scored 26 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  _  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _ [=] _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 26
+Moe: 0
+Curly: 0
+Moe, it's your move. Tiles: [ S D G S I A R ]
+h,5,^,raid
+Well done, that move scored 10 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  _  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  _  I  ≡  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 26
+Moe: 10
+Curly: 0
+Curly, it's your move. Tiles: [ S I W E N O E ]
+l,2,>,wines
+Sorry, 'WINES' is not a valid word (in our dictionary).
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  _  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  _  I  ≡  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 26
+Moe: 10
+Curly: 0
+Curly, it's your move. Tiles: [ S I W E N O E ]
+e,8,^,wine
+Well done, that move scored 7 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  ≡  _  I  _  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  _  I  ≡  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 26
+Moe: 10
+Curly: 7
+Larry, it's your move. Tiles: [ M E R A C P X ]
+j,4,>,mix
+Well done, that move scored 28 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  ≡  _  I  _  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 54
+Moe: 10
+Curly: 7
+Moe, it's your move. Tiles: [ S G S R R T W ]
+f,6,>,writ
+Well done, that move scored 15 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  _ [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  ≡  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 54
+Moe: 25
+Curly: 7
+Curly, it's your move. Tiles: [ S E O E I O E ]
+d,10,^,see
+Well done, that move scored 15 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  S  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 54
+Moe: 25
+Curly: 22
+Larry, it's your move. Tiles: [ E R A C P V T ]
+d,1,>,scarve
+Sorry, 'SCARVE' is not a valid word (in our dictionary).
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  S  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 54
+Moe: 25
+Curly: 22
+Larry, it's your move. Tiles: [ E R A C P V T ]
+d,1,>,starve
+error
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  S  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 54
+Moe: 25
+Curly: 22
+Larry, it's your move. Tiles: [ E R A C P V T ]
+d,11,>,starve
+error
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  S  _ [=] _  _  = 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 54
+Moe: 25
+Curly: 22
+Larry, it's your move. Tiles: [ E R A C P V T ]
+d,10,>,starve
+Well done, that move scored 20 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 74
+Moe: 25
+Curly: 22
+Moe, it's your move. Tiles: [ S G S R V G I ]
+a,15,^,give
+Well done, that move scored 24 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  _  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 74
+Moe: 49
+Curly: 22
+Curly, it's your move. Tiles: [ O I O E O L A ]
+b,13,^,lore
+Well done, that move scored 8 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  _  _  _  =  _  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 74
+Moe: 49
+Curly: 30
+Larry, it's your move. Tiles: [ C P U D T G H ]
+g,10,>,dutch
+Well done, that move scored 19 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 93
+Moe: 49
+Curly: 30
+Moe, it's your move. Tiles: [ S S R G A Y I ]
+f,14,^,hairy
+error
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  _ [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  _  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  ≡  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  _  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 93
+Moe: 49
+Curly: 30
+Moe, it's your move. Tiles: [ S S R G A Y I ]
+g,14,^,hairy
+Well done, that move scored 13 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  =  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  _  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  _  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 93
+Moe: 62
+Curly: 30
+Curly, it's your move. Tiles: [ I O O A H S A ]
+g,12,^,this
+Well done, that move scored 11 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  _  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  _  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _ [=] _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 93
+Moe: 62
+Curly: 41
+Larry, it's your move. Tiles: [ P G P O U E A ]
+i,11,^,page
+Well done, that move scored 20 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  E [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 113
+Moe: 62
+Curly: 41
+Moe, it's your move. Tiles: [ S S G I O E E ]
+shuffle
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  E [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 113
+Moe: 62
+Curly: 41
+Moe, it's your move. Tiles: [ E S I O E G S ]
+l,9,>,geese
+Sorry, 'GEESE' is not a valid word (in our dictionary).
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  _  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  E [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 113
+Moe: 62
+Curly: 41
+Moe, it's your move. Tiles: [ E S I O E G S ]
+a,11,^,gist
+Well done, that move scored 5 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _ [≡] _  _  G  =  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  S  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  E [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 113
+Moe: 67
+Curly: 41
+Curly, it's your move. Tiles: [ O O A A K D E ]
+a,8,>,adage
+Well done, that move scored 24 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  S  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  =  _  _  E [=] _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 113
+Moe: 67
+Curly: 65
+Larry, it's your move. Tiles: [ P O U Q T I A ]
+l,8,>,quiet
+Well done, that move scored 48 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  _  =  _  =  _  S  _  O  _  V 
+ D  =  _  _ [=] _  _  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] _  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 161
+Moe: 67
+Curly: 65
+Moe, it's your move. Tiles: [ E O E S T R N ]
+c,6,^,STOW
+Well done, that move scored 7 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  _ [=] _  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 161
+Moe: 74
+Curly: 65
+Curly, it's your move. Tiles: [ O O K I B L Y ]
+c,2,>,books
+Sorry, 'BOOKS' is not a valid word (in our dictionary).
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  _ [=] _  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 161
+Moe: 74
+Curly: 65
+Curly, it's your move. Tiles: [ O O K I B L Y ]
+d,3,>,boot
+Well done, that move scored 12 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  B  O  O  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  _  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  _  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  =  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  _  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  =  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 161
+Moe: 74
+Curly: 77
+Larry, it's your move. Tiles: [ P O A U N E C ]
+d,3,^,bounce
+Well done, that move scored 12 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  B  O  O  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  O  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  U  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  N  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  C  =  R  A  Z  E  _  _  _  H  _  A [≡]
+ I  _  _  E  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 173
+Moe: 74
+Curly: 77
+Moe, it's your move. Tiles: [ E E R N N M N ]
+h,14,>,am
+Well done, that move scored 12 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  B  O  O  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  O  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  U  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  N  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  C  =  R  A  Z  E  _  _  _  H  _  A  M 
+ I  _  _  E  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+Larry: 173
+Moe: 86
+Curly: 77
+Curly, it's your move. Tiles: [ K I L Y T B U ]
+l,8,^,quit
+Well done, that move scored 39 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  B  O  O  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  O  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  U  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  N  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  C  =  R  A  Z  E  _  _  _  H  _  A  M 
+ I  _  _  E  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  U  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  I  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  =  _  _  _  T  _  _  _  =  _  _ [≡]
+Larry: 173
+Moe: 86
+Curly: 116
+Larry, it's your move. Tiles: [ P A O L F O D ]
+o,4,>,float
+Well done, that move scored 12 points.
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  B  O  O  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  O  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  U  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  N  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  C  =  R  A  Z  E  _  _  _  H  _  A  M 
+ I  _  _  E  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  U  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  I  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  F  L  O  A  T  _  _  _  =  _  _ [≡]
+Larry: 185
+Moe: 86
+Curly: 116
+Moe, it's your move. Tiles: [ E E R N N N N ]
+c,6,>,sneer
+error
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 
+ A [≡] _  _  =  _  _  _  A  D  A  G  E  _  _  G 
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  I  _  L [=] I 
+ C  _  _ [=] _  _  S  =  _  =  _  S  _  O  _  V 
+ D  =  _  B  O  O  T  _  =  _  S  T  A  R  V  E 
+ E  _  _  O  _ [=] O  _  W  _  E [=] _  E  ≡  _ 
+ F  _  ≡  U  _  _  W  R  I  T  E  _  _  _  _  _ 
+ G  _  _  N  _  _  _  =  N  =  D  U  T  C  H  _ 
+ H [≡] _  C  =  R  A  Z  E  _  _  _  H  _  A  M 
+ I  _  _  E  _  A  _  =  _  =  _  P  I  =  I  _ 
+ J  _  ≡  _  M  I  X  _  _  _  ≡  A  S  _  R  _ 
+ K  _  _  _  _  D  _  _  _  _  _  G  _  _  Y  _ 
+ L  =  _  _ [=] _  _  _  Q  U  I  E  T  _  _  = 
+ M  _  _ [=] _  _  _  =  U  =  _  _  _ [=] _  _ 
+ N  _ [=] _  _  _  ≡  _  I  _  ≡  _  _  _ [=] _ 
+ O [≡] _  _  F  L  O  A  T  _  _  _  =  _  _ [≡]
+Larry: 185
+Moe: 86
+Curly: 116
+Moe, it's your move. Tiles: [ E E R N N N N ]
+c,6,>,seen
+Well done, that move scored 6 points.

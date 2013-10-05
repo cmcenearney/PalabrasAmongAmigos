@@ -1,0 +1,1344 @@
+{
+  "board": {
+    "spaces": [
+      [
+        {
+          "type": "triple_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_word",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "A",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "M",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "A",
+          "occupied": true
+        },
+        {
+          "type": "triple_letter",
+          "value": "Z",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "E",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "E",
+          "occupied": true
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "triple_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "N",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "I",
+          "occupied": true
+        },
+        {
+          "type": "double_word",
+          "value": "C",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "E",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_word",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "A",
+          "occupied": true
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "T",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "O",
+          "occupied": true
+        },
+        {
+          "type": "triple_letter",
+          "value": "O",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "L",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "value": "I",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "value": "C",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "U",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "R",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "value": "D",
+          "occupied": true
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "U",
+          "occupied": true
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "value": "T",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        }
+      ],
+      [
+        {
+          "type": "triple_word",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_word",
+          "value": "E",
+          "occupied": true
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "double_letter",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "plain",
+          "occupied": false
+        },
+        {
+          "type": "triple_word",
+          "occupied": false
+        }
+      ]
+    ]
+  },
+  "players": [
+    {
+      "tiles": [
+        {
+          "character": "T",
+          "points": 1
+        },
+        {
+          "character": "N",
+          "points": 1
+        },
+        {
+          "character": "L",
+          "points": 1
+        },
+        {
+          "character": "G",
+          "points": 2
+        },
+        {
+          "character": "L",
+          "points": 1
+        },
+        {
+          "character": "W",
+          "points": 4
+        },
+        {
+          "character": "G",
+          "points": 2
+        }
+      ],
+      "name": "Uno",
+      "score": 26
+    },
+    {
+      "tiles": [
+        {
+          "character": "Y",
+          "points": 4
+        },
+        {
+          "character": "I",
+          "points": 1
+        },
+        {
+          "character": "I",
+          "points": 1
+        },
+        {
+          "character": "S",
+          "points": 1
+        },
+        {
+          "character": "E",
+          "points": 1
+        },
+        {
+          "character": "R",
+          "points": 1
+        },
+        {
+          "character": "I",
+          "points": 1
+        }
+      ],
+      "name": "Dos",
+      "score": 31
+    },
+    {
+      "tiles": [
+        {
+          "character": "T",
+          "points": 1
+        },
+        {
+          "character": "N",
+          "points": 1
+        },
+        {
+          "character": "O",
+          "points": 1
+        },
+        {
+          "character": "R",
+          "points": 1
+        },
+        {
+          "character": "S",
+          "points": 1
+        },
+        {
+          "character": "E",
+          "points": 1
+        },
+        {
+          "character": "A",
+          "points": 1
+        }
+      ],
+      "name": "Tres",
+      "score": 54
+    }
+  ],
+  "moves": [
+    {
+      "score": 10,
+      "row": 7,
+      "column": 6,
+      "word": "ICE",
+      "across": true
+    },
+    {
+      "score": 5,
+      "row": 7,
+      "column": 7,
+      "word": "CAT",
+      "across": false
+    },
+    {
+      "score": 38,
+      "row": 5,
+      "column": 5,
+      "word": "ZEN",
+      "across": false
+    },
+    {
+      "score": 6,
+      "row": 9,
+      "column": 7,
+      "word": "TOOL",
+      "across": true
+    },
+    {
+      "score": 8,
+      "row": 9,
+      "column": 10,
+      "word": "LID",
+      "across": false
+    },
+    {
+      "score": 16,
+      "row": 5,
+      "column": 2,
+      "word": "AMAZE",
+      "across": true
+    },
+    {
+      "score": 10,
+      "row": 11,
+      "column": 7,
+      "word": "CURD",
+      "across": true
+    },
+    {
+      "score": 18,
+      "row": 11,
+      "column": 7,
+      "word": "CUTE",
+      "across": false
+    }
+  ],
+  "num_players": 3,
+  "current_turn": 2,
+  "tile_bag": {
+    "tiles": [
+      {
+        "character": "D",
+        "points": 2
+      },
+      {
+        "character": "D",
+        "points": 2
+      },
+      {
+        "character": "D",
+        "points": 2
+      },
+      {
+        "character": "E",
+        "points": 1
+      },
+      {
+        "character": "E",
+        "points": 1
+      },
+      {
+        "character": "E",
+        "points": 1
+      },
+      {
+        "character": "E",
+        "points": 1
+      },
+      {
+        "character": "E",
+        "points": 1
+      },
+      {
+        "character": "E",
+        "points": 1
+      },
+      {
+        "character": "F",
+        "points": 4
+      },
+      {
+        "character": "F",
+        "points": 4
+      },
+      {
+        "character": "G",
+        "points": 2
+      },
+      {
+        "character": "A",
+        "points": 1
+      },
+      {
+        "character": "A",
+        "points": 1
+      },
+      {
+        "character": "A",
+        "points": 1
+      },
+      {
+        "character": "A",
+        "points": 1
+      },
+      {
+        "character": "A",
+        "points": 1
+      },
+      {
+        "character": "B",
+        "points": 3
+      },
+      {
+        "character": "B",
+        "points": 3
+      },
+      {
+        "character": "L",
+        "points": 1
+      },
+      {
+        "character": "M",
+        "points": 3
+      },
+      {
+        "character": "N",
+        "points": 1
+      },
+      {
+        "character": "N",
+        "points": 1
+      },
+      {
+        "character": "N",
+        "points": 1
+      },
+      {
+        "character": "O",
+        "points": 1
+      },
+      {
+        "character": "O",
+        "points": 1
+      },
+      {
+        "character": "O",
+        "points": 1
+      },
+      {
+        "character": "O",
+        "points": 1
+      },
+      {
+        "character": "O",
+        "points": 1
+      },
+      {
+        "character": "H",
+        "points": 4
+      },
+      {
+        "character": "H",
+        "points": 4
+      },
+      {
+        "character": "I",
+        "points": 1
+      },
+      {
+        "character": "I",
+        "points": 1
+      },
+      {
+        "character": "I",
+        "points": 1
+      },
+      {
+        "character": "I",
+        "points": 1
+      },
+      {
+        "character": "J",
+        "points": 8
+      },
+      {
+        "character": "K",
+        "points": 5
+      },
+      {
+        "character": "U",
+        "points": 1
+      },
+      {
+        "character": "U",
+        "points": 1
+      },
+      {
+        "character": "T",
+        "points": 1
+      },
+      {
+        "character": "T",
+        "points": 1
+      },
+      {
+        "character": "W",
+        "points": 4
+      },
+      {
+        "character": "V",
+        "points": 4
+      },
+      {
+        "character": "V",
+        "points": 4
+      },
+      {
+        "character": "Q",
+        "points": 10
+      },
+      {
+        "character": "P",
+        "points": 3
+      },
+      {
+        "character": "P",
+        "points": 3
+      },
+      {
+        "character": "S",
+        "points": 1
+      },
+      {
+        "character": "S",
+        "points": 1
+      },
+      {
+        "character": "R",
+        "points": 1
+      },
+      {
+        "character": "R",
+        "points": 1
+      },
+      {
+        "character": "R",
+        "points": 1
+      },
+      {
+        "character": "Y",
+        "points": 4
+      },
+      {
+        "character": "X",
+        "points": 8
+      }
+    ]
+  },
+  "id": 1380152541182
+}
