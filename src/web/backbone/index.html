@@ -150,13 +150,35 @@ Palabras.Views.ScoresView = Backbone.View.extend({
   }
 });
 
+
 Palabras.Views.CurrentPlayerView = Backbone.View.extend({
+  initialize: function(){
+    this.currentPlayer = this.model.get('players')[this.model.get('current_turn')];
+    this.tiles = this.currentPlayer.tiles;
+  },
   id: "player_move",
   events: {
-    "click #shuffle_btn": "shuffleTiles"
+    "click #shuffle_btn": "shuffleTiles",
+    "click #move_btn": "submitMove"
+  },
+  submitMove: function(){
+    move = $('#move_input').val();
+    alert(move);
+
+    /*
+    $.ajax({
+      type: "PUT",
+      url: "api/games/{id}/move",
+      data: { id: this.id, move: move, currentPlayer: this.currentPlayer }
+      })
+      .done(function( msg ) {
+        alert( "Data Saved: " + msg );
+      });
+*/
+
   },
   shuffleTiles: function(){
-    tiles = this.model.tiles;
+    tiles = this.tiles;
     for (var i=tiles.length-1; i > 0; i--){
       j = Math.floor((Math.random()*i)+0);
       tmp = tiles[j];
@@ -166,13 +188,14 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
     this.render();
   },
   render: function(){
-    var tiles = this.model.tiles;
-    var rendered = "<h5>" + this.model.name + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
+    tiles = this.tiles;
+    var rendered = "<h5>" + this.currentPlayer.name + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
     for (var i=0; i < tiles.length; i++){
       rendered += "<td>" + tiles[i].character + "<sub>" + tiles[0].points + "</sub></td>";
     }
     rendered += "</tr></table>";
-    rendered += "<button id='shuffle_btn'>Shuffle</button>";
+    rendered += "<button id='shuffle_btn'>Shuffle tiles</button>";
+    rendered += "<input id='move_input'><button id='move_btn'>Submit move</button>";
     this.$el.html(rendered);
   }
 });
@@ -205,6 +228,7 @@ game = new Palabras.Models.Game();
 currentPlayer = new Palabras.Models.Player();
 board = new Palabras.Models.Board();
 game.fetch({
+
   success: function(){
 
     currentPlayer = game.get('players')[game.get('current_turn')];
@@ -212,7 +236,7 @@ game.fetch({
     
     scores = new Palabras.Views.ScoresView({ model: game });
     boardView = new Palabras.Views.BoardView({ model: board });
-    currentPlayerView = new Palabras.Views.CurrentPlayerView({ model: currentPlayer });
+    currentPlayerView = new Palabras.Views.CurrentPlayerView({ model: game });
     
     scores.render();
     currentPlayerView.render();

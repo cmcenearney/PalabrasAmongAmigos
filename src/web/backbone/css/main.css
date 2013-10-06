@@ -91,6 +91,7 @@ table {
 
 #tile_rack {
   margin:0px auto; 
+  margin-bottom: 20px;
 }
 #tile_rack sub { 
   font-size:65%;
@@ -99,6 +100,14 @@ table {
 #tile_rack td {
   background-color: #efefef;
 }
+
+#move_input {
+  margin-left: 118px;
+}
+#move_btn {
+  margin-left: 84px;
+}
+
 
 a:link {color:#1a1a1a;}      /* unvisited link */
 a:visited {color:#1a1a1a;}  /* visited link */
