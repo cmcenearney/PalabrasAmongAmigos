@@ -1,0 +1,17 @@
+template: Hello, %s!
+defaultName: Stranger
+# HTTP-specific options.
+http:
+
+  # The port on which the HTTP server listens for service requests.
+  # Because Java cannot drop privileges in a POSIX system, these
+  # ports cannot be in the range 1-1024. A port value of 0 will
+  # make the OS use an arbitrary unused port.
+  port: 8080
+
+  # The port on which the HTTP server listens for administrative
+  # requests. Subject to the same limitations as "port". If this is
+  # set to the same value as port, the admin routes will be mounted
+  # under /admin.
+  adminPort: 9091
+
