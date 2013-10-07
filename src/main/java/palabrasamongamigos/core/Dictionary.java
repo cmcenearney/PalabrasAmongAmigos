@@ -30,7 +30,7 @@ public class Dictionary {
 
     //methods
     private void createDictionary() {
-        File file = new File("resources/words.txt");
+        File file = new File("src/main/resources/words.txt");
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String line;

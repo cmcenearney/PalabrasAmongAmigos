@@ -32,6 +32,7 @@ public class GamesResource {
 
     @POST
     public GameModel makeMove(@PathParam("id") LongParam gameId, @Valid MoveProposal moveProposal) {
+
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", moveProposal.getId());
         BasicDBObject fields = new BasicDBObject("_id",false);
@@ -54,7 +55,10 @@ public class GamesResource {
         catch (IOException e){
             System.out.println(e);
         }
-
+        if (gameId.get() != moveProposal.getId()) {
+            game.setErrorMsg("ERROR - url ID " + gameId.get() + "does not ID in json data " + moveProposal.getId() );
+            return game;
+        }
         if (moveProposal.getCurrentTurn() != game.getCurrentTurn()) {
             game.setErrorMsg("ERROR - currentTurn does not match currentTurn for game id=" + game.getId());
             return game;
@@ -75,7 +79,7 @@ public class GamesResource {
     @GET
     public GameModel getGame(@PathParam("id") LongParam id){
         ObjectMapper mapper = new ObjectMapper();
-        BasicDBObject query = new BasicDBObject("id", id);
+        BasicDBObject query = new BasicDBObject("id", id.get());
         BasicDBObject fields = new BasicDBObject("_id",false);
         String dbJson = coll.find(query,fields).next().toString();
 
@@ -101,7 +105,7 @@ public class GamesResource {
 }
 
 /*
-curl http://localhost:8080/games/1381106790975  -X POST -H "Content-Type: application/json" -d '{ "id": 1381106790975, "moveString": "H,8,>,HOG", "moveNumber": 1, "currentTurn": 0}'
+curl http://localhost:8080/api/games/1381106790975  -X POST -H "Content-Type: application/json" -d '{ "id": 1381106790975, "moveString": "H,8,>,HOG", "moveNumber": 1, "currentTurn": 0}'
 
         if ( move.checkMove() )  {
             int score = move.makeMove();

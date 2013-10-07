@@ -22,7 +22,7 @@ public class MoveProposal {
 
     public MoveProposal(long id, String moveString, int moveNumber, int currentTurn) {
         this.id = id;
-        this.moveString = moveString;
+        this.moveString = moveString.toUpperCase();
         this.moveNumber = moveNumber;
         this.currentTurn = currentTurn;
     }

@@ -2,7 +2,7 @@ template: Hello, %s!
 defaultName: Stranger
 # HTTP-specific options.
 http:
-
+  rootPath: /api/*
   # The port on which the HTTP server listens for service requests.
   # Because Java cannot drop privileges in a POSIX system, these
   # ports cannot be in the range 1-1024. A port value of 0 will
