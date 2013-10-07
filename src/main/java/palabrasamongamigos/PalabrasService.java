@@ -35,6 +35,7 @@ public class PalabrasService extends Service<PalabrasConfiguration> {
         final String template = configuration.getTemplate();
         final String defaultName = configuration.getDefaultName();
         environment.addResource(new NewGameResource(template, defaultName));
+        environment.addResource(new GamesResource());
     }
 
 }

@@ -1,24 +1,29 @@
 package palabrasamongamigos.core;
 
 import com.google.gson.annotations.Expose;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Player implements Serializable, Comparable<Player > {
 
     //attributes
     @JsonProperty
-    private List<Tile> tiles = new ArrayList<Tile>();
-    @JsonProperty
     private String name;
-    private GameModel game;
+    @JsonProperty
+    private ArrayList<Tile> tiles = new ArrayList<Tile>();
     @JsonProperty
     private int score = 0;
+    private GameModel game;
+
 
     //constructors
+    public Player() {}
+
     public Player(GameModel game) {
         this.game = game;
     }
@@ -28,6 +33,12 @@ public class Player implements Serializable, Comparable<Player > {
         this.game = game;
     }
 
+    public Player(String name, ArrayList<Tile> tiles, int score) {
+        this.name = name;
+        this.tiles = tiles;
+        this.score = score;
+    }
+
     //getters + setters
     public String getName() {
         return name;
@@ -35,8 +46,8 @@ public class Player implements Serializable, Comparable<Player > {
     public void setName(String name) {
         this.name = name;
     }
-    public List<Tile> getTiles(){
-        List<Tile> tiles_copy = new ArrayList<Tile>();
+    public ArrayList<Tile> getTiles(){
+        ArrayList<Tile> tiles_copy = new ArrayList<Tile>();
         for (Tile tile : this.tiles) {
             tiles_copy.add(tile);
         }
@@ -71,7 +82,7 @@ public class Player implements Serializable, Comparable<Player > {
         return output;
     }
 
-    public ArrayList<String> getTileValues(){
+    public ArrayList<String> tileValues(){
         ArrayList<String> tile_values = new ArrayList<String>();
         for (Tile t : tiles){
             tile_values.add(t.getCharacter());
@@ -96,7 +107,7 @@ public class Player implements Serializable, Comparable<Player > {
             String s = exchanges.get(0);
             for (Tile t : tiles){
                 if (t.getCharacter().equals(s)){
-                    game.getTile_bag().addTile(t);
+                    game.getTileBag().addTile(t);
                     ex_tiles.add(t);
                     exchanges.remove(s);
                 }
@@ -106,7 +117,7 @@ public class Player implements Serializable, Comparable<Player > {
             tiles.remove(t);
         }
         while (tiles.size() < GameModel.num_tiles){
-            tiles.add(game.getTile_bag().randomDraw());
+            tiles.add(game.getTileBag().randomDraw());
         }
         return exchanges;
     }

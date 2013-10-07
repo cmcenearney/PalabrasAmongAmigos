@@ -3,6 +3,7 @@ package palabrasamongamigos.core;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,11 +14,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GameModel implements Serializable{
 
     //attributes
     public static final int num_tiles = 7;
     private Dictionary dictionary = Dictionary.getDictionaryInstance();
+    private String _id;
     @Expose
     @JsonProperty
     protected Board board = new Board();
@@ -29,17 +32,19 @@ public class GameModel implements Serializable{
     protected List<Move> moves = new ArrayList<Move>();
     @Expose
     @JsonProperty
-    protected Integer num_players = 2;
+    protected Integer numPlayers = 2;
     @Expose
     @JsonProperty
-    protected Integer current_turn = 0;
+    protected Integer currentTurn = 0;
     @Expose
     @JsonProperty
-    protected TileBag tile_bag = new TileBag();
-    protected boolean is_first_move = true;
+    protected TileBag tileBag = new TileBag();
+    protected boolean isFirstMove = true;
     @Expose
     @JsonProperty
     protected long id;
+    @JsonProperty
+    protected String errorMsg=null;
 
     //constructors
     public GameModel(){
@@ -58,17 +63,17 @@ public class GameModel implements Serializable{
     public List<Player> getPlayers() {
         return players;
     }
-    public Integer getNum_players() {
-        return num_players;
+    public Integer getNumPlayers() {
+        return numPlayers;
     }
-    public void setNum_players(int n) {
-        this.num_players=n;
+    public void setNumPlayers(int n) {
+        this.numPlayers=n;
     }
-    public Integer getCurrent_turn() {
-        return current_turn;
+    public Integer getCurrentTurn() {
+        return currentTurn;
     }
-    public TileBag getTile_bag() {
-        return tile_bag;
+    public TileBag getTileBag() {
+        return tileBag;
     }
     public long getId() {
         return id;
@@ -79,25 +84,25 @@ public class GameModel implements Serializable{
     public List<Move> getMoves() {
         return moves;
     }
-    public void setMoves(List<Move> moves) {
-        this.moves = moves;
-    }
     public Board getBoard() {
         return board;
     }
-    public void setBoard(Board board) {
-        this.board = board;
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
 
     //methods
 
     public void addPlayers(){
-        for (int i = 0; i < num_players; i++){
+        for (int i = 0; i < numPlayers; i++){
             //TODO: handle player name
             Player player = new Player("", this);
             players.add(i,player);
             for (int j=0; j < num_tiles; j++){
-                Tile t = tile_bag.randomDraw();
+                Tile t = tileBag.randomDraw();
                 player.addTile(t);
             }
         }
@@ -143,7 +148,7 @@ public class GameModel implements Serializable{
     public void showJSON(){
         JSONObject json = new JSONObject();
         try {
-            json.put("board", this.board.spaces);
+            json.put("board", this.board.getSpaces());
         }
         catch (JSONException e) {}
         System.out.println(json.toString());

@@ -1,12 +1,14 @@
 package palabrasamongamigos.core;
 
 import com.google.gson.annotations.Expose;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Move implements Serializable {
 
     public class SideWord implements Serializable {
@@ -23,7 +25,7 @@ public class Move implements Serializable {
     //attributes
     private GameModel game;
     @JsonProperty
-    private ArrayList<SideWord> side_words = new ArrayList<SideWord>();
+    private ArrayList<SideWord> sideWords = new ArrayList<SideWord>();
     @JsonProperty
     private int score;
     @JsonProperty
@@ -32,7 +34,7 @@ public class Move implements Serializable {
     private int column;
     @JsonProperty
     private String word;
-    private String error_message = "error";
+    private String errorMessage = "error";
     @JsonProperty
     private boolean across;
     @JsonProperty
@@ -41,19 +43,19 @@ public class Move implements Serializable {
     private List<Tile> tiles = new ArrayList<Tile>();
     private Player player;
     protected Board board;
-    boolean intersects_existing_word = false;
+    boolean intersectsExistingWord = false;
     //boolean is_first_word;
 
     //constructor(s)
     public Move (GameModel game, int row, int column, String word, boolean across, Player player){
         this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.board;
-        this.player_ind = game.current_turn;
+        this.player_ind = game.getCurrentTurn();
         this.tiles = player.getTiles();
     }
 
     //getters + setters
-    public String getError_message() {
-        return error_message;
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
     //methods
@@ -64,7 +66,7 @@ public class Move implements Serializable {
         // look in the positive direction starting one tile over, if occupied, append to side-word, continue
         int pos_ind;   if (across) {pos_ind = row+1;} else {pos_ind = column+1;}
         BoardSpace next_space;
-        while(pos_ind < Board.board_size) {
+        while(pos_ind < Board.boardSize) {
             if (across) { next_space = board.getSpace(pos_ind, column);} else {next_space = board.getSpace(row,pos_ind);}
             if (next_space.isOccupied()){
                 side_word += next_space.getValue();
@@ -104,8 +106,8 @@ public class Move implements Serializable {
             else if (type.equals("double_letter")) { placed_tile_score *= 2;}
             points += placed_tile_score;
             points *= multiplicative_factor;
-            side_words.add(new SideWord(side_word, points));
-            intersects_existing_word = true;
+            sideWords.add(new SideWord(side_word, points));
+            intersectsExistingWord = true;
             return true;
         }
         return false;
@@ -114,34 +116,34 @@ public class Move implements Serializable {
     public boolean checkMove() {
         //first check that it's a word
         if (!game.validWord(word)) {
-            error_message = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
+            errorMessage = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
             return false;
         }
         //if it's the first move make sure it touches the center tile
-        if (game.is_first_move){
+        if (game.isFirstMove){
             if (across){
                 if (!(row == 7 && column <= 7 && column+word.length() >= 7 )) {
-                    error_message = "Error - the first move must touch the center tile (H,8).";
+                    errorMessage = "Error - the first move must touch the center tile (H,8).";
                     return false;
                 }
             }
             else {
                 if (!(column == 7 && row <= 7 && row+word.length() >= 7 )) {
-                    error_message = "Error - the first move must touch the center tile (H,8).";
+                    errorMessage = "Error - the first move must touch the center tile (H,8).";
                     return false;
                 }
             }
         }
         //then check that it will work
         boolean tile_placed = false;
-        ArrayList<String> tile_values = player.getTileValues();
+        ArrayList<String> tile_values = player.tileValues();
         //iterate over the proposed word / board spaces and check at each space/letter that it is possible
         for (int i = 0; i < word.length(); i++) {
             int x = row; int y = column;
             String current_letter = Character.toString(word.charAt(i));
             if (across) { y = column + i; } else {  x = row + i; }
-            if (y >= Board.board_size || x >= Board.board_size) {
-                error_message = "Sorry, '" + word + "' is too big for that spot.";
+            if (y >= Board.boardSize || x >= Board.boardSize) {
+                errorMessage = "Sorry, '" + word + "' is too big for that spot.";
                 return false;
             }
             BoardSpace current_space = board.getSpace(x,y);
@@ -155,7 +157,7 @@ public class Move implements Serializable {
 
             // there is a letter on the space and it *is* the right letter of the word we're checking
             else if (space_occupied && current_letter.equals(current_space_value)) {
-                intersects_existing_word = true;
+                intersectsExistingWord = true;
                 continue;
             }
 
@@ -175,11 +177,11 @@ public class Move implements Serializable {
                 return false;
             }
         }
-        return (tile_placed && (game.is_first_move || intersects_existing_word) );
+        return (tile_placed && (game.isFirstMove || intersectsExistingWord) );
     }
 
-    public int makeMove() {
-        game.is_first_move = false;
+    public void makeMove() {
+        game.isFirstMove = false;
         int score = 0;
         int multiplicative_factor = 1;
         for (int i = 0; i < word.length(); i++) {
@@ -225,11 +227,16 @@ public class Move implements Serializable {
         score *= multiplicative_factor;
         //is it a 'bingo'?  (must came after multiplying)
         if (player.getTiles().size() == 0) {score += 50;}
-        for (SideWord s : side_words){
+        for (SideWord s : sideWords){
             score += s.points;
         }
         this.score = score;
-        return score;
+        player.setScore(player.getScore() + score);
+        while (player.getTiles().size() < game.num_tiles && game.tileBag.getTiles().size() > 0){
+            player.addTile(game.tileBag.randomDraw());
+        }
+        game.currentTurn = (game.currentTurn + 1) % game.numPlayers;
+        game.moves.add(this);
     }
 
 }

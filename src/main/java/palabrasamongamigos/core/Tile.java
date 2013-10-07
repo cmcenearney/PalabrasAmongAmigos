@@ -9,6 +9,8 @@ public class Tile implements Serializable {
     @JsonProperty
     private int points;
 
+    public Tile(){}
+
     public Tile(String ch, int pts){
         this.character = ch;
         this.points = pts;

@@ -53,10 +53,8 @@ public class NewGameResource {
         } catch (Exception e){
             System.out.println(e);
         }
-        BasicDBObject doc = new BasicDBObject("id", newGame.getId());
-        coll.insert(doc);
-        DBObject dbObject = (DBObject) JSON.parse(json);
-        coll.insert(dbObject);
+        DBObject gameDoc = (DBObject) JSON.parse(json);
+        coll.insert(gameDoc);
         return newGame;
     }
 
