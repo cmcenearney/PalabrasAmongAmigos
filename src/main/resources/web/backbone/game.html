@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>¡Palabras! - Backbone client</title>
+
+    <link type="text/css" rel="stylesheet" href="css/main.css"/>
+
+</head>
+<body>
+
+
+<div class="centered" id="main_div">
+
+<div id="left">
+</div>
+
+<div id="middle">
+  <div id="board"> </div>
+  <div id="player_move"> </div>
+  
+</div> <!-- CLOSE MIDDLE -->
+
+
+
+<div id="right">
+  <div id="scoreboard"> </div>
+</div>
+
+</div><!-- close main -->
+
+
+<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="js/underscore-min.js" type="text/javascript"></script>
+<script src="js/backbone-min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+//App
+var Palabras = {
+  Models: {},
+  Collections: {},
+  Views: {},
+  Routers: {},
+  initialize: function() {
+    new ExampleApp.Routers.Tasks();
+    Backbone.history.start();
+  }
+};
+
+
+// Models
+Palabras.Models.Player = Backbone.Model.extend();
+
+Palabras.Models.BoardSpace = Backbone.Model.extend();
+
+Palabras.Models.Board = Backbone.Model.extend();
+
+Palabras.Models.Game = Backbone.Model.extend({
+  url: "api/games/" + this.id,
+  //url: "http://localhost/palabras/src/main/resources/web/backbone/assets/test_new_model.json",
+  defaults: {
+    boardSize: 15,
+    numPlayers: 2,
+    id: null
+  }
+  
+});
+
+
+//Views
+Palabras.Views.ScoresView = Backbone.View.extend({
+  id: "scoreboard",
+  render: function(){
+    header = "<h3>Scores:</h3>";
+    this.$el.append(header);
+    tbl = document.createElement("table");
+    for (var i=0; i < this.model.get('players').length; i++){
+      player = this.model.get('players')[i];
+      tr = document.createElement("tr");
+      td = document.createElement("td");
+      td.innerHTML =  "Player " + (i + 1);     //player.name;
+      tr.appendChild(td);
+      score = document.createElement("td");
+      score.innerHTML = player.score;
+      tr.appendChild(score);
+      tbl.appendChild(tr)
+    }
+    this.$el.append(tbl);
+    this.$el.html();
+  }
+});
+
+
+Palabras.Views.CurrentPlayerView = Backbone.View.extend({
+  initialize: function(){
+    this.currentPlayer = this.model.get('players')[this.model.get('currentTurn')];
+    this.tiles = this.currentPlayer.tiles;
+  },
+  id: "player_move",
+  events: {
+    "click #shuffle_btn": "shuffleTiles",
+    "click #move_btn": "submitMove"
+  },
+
+  submitMove: function(){
+    moveString = $('#move_input').val(); //{ "id": 1381106790975, "moveString": "H,8,>,HOG", "moveNumber": 1, "currentTurn": 0}
+    moveProposal = new Object();
+    moveProposal.id = this.model.get('id');
+    moveProposal.moveString = moveString;
+    moveProposal.moveNumber = this.model.get('moves').length + 1;
+    moveProposal.currentTurn = this.model.get('currentTurn');
+    model = this.model; 
+    $.ajax({
+        url: "api/games/" + this.model.get('id'),
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(moveProposal),
+        processData: false,
+        dataType: 'json'
+    }).done(function() {
+       fetchGameAndUpdate(model);
+      });  
+  },
+
+  shuffleTiles: function(){
+    tiles = this.tiles;
+    for (var i=tiles.length-1; i > 0; i--){
+      j = Math.floor((Math.random()*i)+0);
+      tmp = tiles[j];
+      tiles[j] = tiles[i];
+      tiles[i] = tmp;
+    }
+    this.render();
+  },
+
+  render: function(){
+    tiles = this.tiles;
+    var rendered = "<h5>Player " + (this.model.get('currentTurn')+1) + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
+    for (var i=0; i < tiles.length; i++){
+      rendered += "<td>" + tiles[i].character + "<sub>" + tiles[0].points + "</sub></td>";
+    }
+    rendered += "</tr></table>";
+    rendered += "<button id='shuffle_btn'>Shuffle tiles</button>";
+    rendered += "<input id='move_input'><button id='move_btn'>Submit move</button>";
+    this.$el.html(rendered);
+  }
+});
+
+Palabras.Views.BoardView = Backbone.View.extend({
+  id: "board",
+  tagName: "table",
+  render: function(){
+    n = this.model.spaces.length;   
+    //guide row
+    tr = document.createElement("tr");
+    td = document.createElement("td");
+    td.className = "guide corner";
+    tr.appendChild(td);
+    for (var i=1; i <= n; i++){
+      td = document.createElement("td");
+      td.className = "guide";
+      td.innerHTML = i;
+      tr.appendChild(td);
+    }
+    this.$el.append(tr)
+    for (var i=0; i < n; i++) {
+      tr = document.createElement("tr");
+      td = document.createElement("td");
+      td.className = "guide";
+      td.innerHTML = String.fromCharCode(i + 65);
+      tr.appendChild(td)
+      for (var j=0; j < n; j++) {
+        space = this.model.spaces[i][j];
+        td = document.createElement("td");
+        td.className = space.type;
+        if (space.occupied) {
+          td.innerHTML = space.value;
+          td.className += (" occupied");
+        }
+        tr.appendChild(td);
+      }
+      this.$el.append(tr)
+    }
+    this.$el.html();
+  }
+});
+
+//spaghetti
+function fetchGameAndUpdate(game) {
+  game.fetch({
+
+    success: function(){
+
+      currentPlayer = game.get('players')[game.get('currentTurn')];
+      board = game.get('board');
+      
+      scores = new Palabras.Views.ScoresView({ model: game });
+      boardView = new Palabras.Views.BoardView({ model: board });
+      currentPlayerView = new Palabras.Views.CurrentPlayerView({ model: game });
+      
+      scores.render();
+      currentPlayerView.render();
+      boardView.render();
+
+      $('#player_move').replaceWith(currentPlayerView.el);   
+      $('#board').replaceWith(boardView.el);
+      $('#scoreboard').replaceWith(scores.el);
+    }
+  })
+};
+game = new Palabras.Models.Game();
+currentPlayer = new Palabras.Models.Player();
+board = new Palabras.Models.Board();
+fetchGameAndUpdate(game);
+/*
+game.fetch({
+
+  success: function(){
+
+    currentPlayer = game.get('players')[game.get('currentTurn')];
+    board = game.get('board');
+    
+    scores = new Palabras.Views.ScoresView({ model: game });
+    boardView = new Palabras.Views.BoardView({ model: board });
+    currentPlayerView = new Palabras.Views.CurrentPlayerView({ model: game });
+    
+    scores.render();
+    currentPlayerView.render();
+    boardView.render();
+
+    $('#middle').append(currentPlayerView.el);   
+    $('#board').replaceWith(boardView.el);
+    $('#right').append(scores.el);
+  }
+});
+*/
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
