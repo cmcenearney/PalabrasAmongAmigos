@@ -10,6 +10,6 @@ public class DictionaryTest {
 
     @Test
     public void dictionaryIsLoading(){
-        assertEquals(true, dictionary.validWord("hog"));
+        assertEquals(true, dictionary.validWord("ti"));
     }
 }

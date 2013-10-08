@@ -1,5 +1,6 @@
 package palabrasamongamigos;
 
+import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.config.Bootstrap;
@@ -31,7 +32,7 @@ public class PalabrasService extends Service<PalabrasConfiguration> {
     @Override
     public void initialize(Bootstrap<PalabrasConfiguration> bootstrap) {
         bootstrap.setName("palabras-among-amigos");
-        bootstrap.addBundle(new AssetsBundle("/web/backbone/", "/"));
+        bootstrap.addBundle(new ConfiguredAssetsBundle("/web/backbone/", "/"));
     }
 
     @Override

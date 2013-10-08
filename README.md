@@ -28,6 +28,5 @@ Move syntax is pretty bad atm:  `h,6,>,word`
     - must be comma separated: {row},{column},{^|>},{word}
     - use ">" for horizontal moves and "^" for vertical , ie `h,6,^,why`
 
-To-do
 
-1381203836395 - check out what happened with this game - failed to
+

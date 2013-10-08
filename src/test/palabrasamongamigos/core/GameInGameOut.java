@@ -63,4 +63,40 @@ public class GameInGameOut {
         assertEquals(fromDB.getId(), game.getId());
         System.out.println(fromDB.getId());
     }
+    @Test
+    public void readSetErrMsgSave(){
+        long id = 1381260464812l;
+        MongoResource mongo = MongoResource.INSTANCE;
+        DBCollection coll =  mongo.getCollection();
+        ObjectMapper mapper = new ObjectMapper();
+
+        BasicDBObject query = new BasicDBObject("id", id);
+        BasicDBObject fields = new BasicDBObject("_id",false);
+
+        String dbJson = coll.find(query,fields).next().toString();
+        String dbJson1 = coll.findOne(query,fields).toString();
+
+        GameModel fromDB = new GameModel();
+
+        try {
+            fromDB = mapper.readValue(dbJson, GameModel.class);
+        }
+        //TODO log exceptions
+        catch (com.fasterxml.jackson.databind.JsonMappingException e) {
+            System.out.println("mapping exception:");
+            System.out.println(e);
+            System.out.println(e.getPath());
+        }
+        catch (JsonParseException e) {
+            System.out.println("parse exception:");
+            System.out.println(e);
+        }
+        catch (IOException e){
+            System.out.println("IO exception:");
+            System.out.println(e);
+        }
+        assertEquals(id, fromDB.getId());
+        System.out.println(fromDB.getId());
+    }
+
 }

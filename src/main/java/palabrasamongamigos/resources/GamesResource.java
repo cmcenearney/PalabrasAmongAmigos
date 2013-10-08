@@ -37,6 +37,8 @@ public class GamesResource {
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", moveProposal.getId());
         BasicDBObject fields = new BasicDBObject("_id",false);
+
+        //should this throw an exception if no matching doc found? what kind?
         String dbJson = coll.find(query,fields).next().toString();
 
         GameModel game = new GameModel();

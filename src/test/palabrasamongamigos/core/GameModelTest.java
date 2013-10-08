@@ -61,4 +61,11 @@ public class GameModelTest {
         assertEquals(testID, test.getId());
     }
 
+    @Test
+    public void testSetErrorMsg(){
+        GameModel game = new GameModel();
+        assertEquals(null, game.getErrorMsg());
+        game.setErrorMsg("ERROR!");
+        assertEquals("ERROR!", game.getErrorMsg());
+    }
 }

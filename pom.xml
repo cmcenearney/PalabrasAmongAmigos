@@ -35,6 +35,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.bazaarvoice.dropwizard</groupId>
+            <artifactId>dropwizard-configurable-assets-bundle</artifactId>
+            <version>0.1.11</version>
+        </dependency>
+
     </dependencies>
 
     <properties>

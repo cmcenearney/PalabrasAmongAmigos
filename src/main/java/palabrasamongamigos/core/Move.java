@@ -10,35 +10,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Move implements Serializable {
 
-    public class SideWord implements Serializable {
-        @JsonProperty
-        private String word;
-        @JsonProperty
-        private int points;
-        public SideWord(){}
-        public SideWord(String s, int y) {
-            this.word = s;
-            this.points = y;
-        }
-        public int getPoints() {
-            return points;
-        }
-        public void setPoints(int points) {
-            this.points = points;
-        }
-        public String getWord() {
-            return word;
-        }
-        public void setWord(String word) {
-            this.word = word;
-        }
-
-    }
-
     //attributes
     private GameModel game;
     @JsonProperty
-    private ArrayList<SideWord> sideWords = new ArrayList<SideWord>();
+    private ArrayList<SimpleScoredWord> sideWords = new ArrayList<SimpleScoredWord>();
     @JsonProperty
     private int score;
     @JsonProperty
@@ -118,7 +93,7 @@ public class Move implements Serializable {
             else if (type.equals("double_letter")) { placed_tile_score *= 2;}
             points += placed_tile_score;
             points *= multiplicative_factor;
-            sideWords.add(new SideWord(side_word, points));
+            sideWords.add(new SimpleScoredWord(side_word, points));
             intersectsExistingWord = true;
             return true;
         }
@@ -238,7 +213,7 @@ public class Move implements Serializable {
         score *= multiplicative_factor;
         //is it a 'bingo'?  (must came after multiplying)
         if (player.getTiles().size() == 0) {score += 50;}
-        for (SideWord s : sideWords){
+        for (SimpleScoredWord s : sideWords){
             score += s.getPoints();
         }
         this.score = score;
