@@ -28,11 +28,12 @@ java -jar target/palabras-among-amigos-0.0.1.jar server palabras-among-amigos.ym
 
 then visit [http://localhost:8080](http://localhost:8080)
 
-Move syntax is pretty weird and brittle atm ie "h,6,>,word":  
-
+Move syntax is pretty weird and brittle atm:  
+  - the format is {row},{column},{^|>},{word} ie `h,6,>,word`    
+  - use ">" for horizontal moves and "^" for vertical , ie `h,6,^,why` 
   - no error handling yet  
-  - must be comma separated: {row},{column},{^|>},{word}  
-  - use ">" for horizontal moves and "^" for vertical , ie `h,6,^,why`
+  - must be comma separated, no spaces  
+
 
 API
 ---
