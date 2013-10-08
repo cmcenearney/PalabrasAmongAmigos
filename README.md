@@ -21,12 +21,13 @@ mvn clean install
 java -jar target/palabras-among-amigos-0.0.1.jar server palabras-among-amigos.yml
 ```
 
-then visit [http://localhost:8080]
+then visit [http://localhost:8080](http://localhost:8080)
 
-Move syntax is pretty bad atm:  `h,6,>,word`
-    - no error handling yet
-    - must be comma separated: {row},{column},{^|>},{word}
-    - use ">" for horizontal moves and "^" for vertical , ie `h,6,^,why`
+Move syntax is pretty bad atm ie "h,6,>,word":  
+
+  - no error handling yet  
+  - must be comma separated: {row},{column},{^|>},{word}  
+  - use ">" for horizontal moves and "^" for vertical , ie `h,6,^,why`
 
 To-do
 
