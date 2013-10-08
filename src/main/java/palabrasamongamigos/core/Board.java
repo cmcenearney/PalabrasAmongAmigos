@@ -1,7 +1,7 @@
 package palabrasamongamigos.core;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +15,8 @@ public class Board implements Serializable{
     private List<ArrayList<BoardSpace>> spaces = new ArrayList<ArrayList<BoardSpace>>(boardSize);
 
     private HashMap<String,String> emptySpaceValues = new HashMap<String, String>();
+
+
 
     public Board(){
 
@@ -58,7 +60,7 @@ public class Board implements Serializable{
         }
         return column;
     }
-
+    /*
     public boolean isEmpty(){
         for (ArrayList<BoardSpace> row : spaces){
             for (BoardSpace s : row){
@@ -69,5 +71,5 @@ public class Board implements Serializable{
         }
         return true;
     }
-
+    */
 }

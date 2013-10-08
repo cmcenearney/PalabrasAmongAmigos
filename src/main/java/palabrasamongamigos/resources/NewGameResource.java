@@ -1,11 +1,12 @@
 package palabrasamongamigos.resources;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Optional;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
 import com.yammer.metrics.annotation.Timed;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import palabrasamongamigos.MongoResource;
 import palabrasamongamigos.core.Game;
 import palabrasamongamigos.core.GameModel;

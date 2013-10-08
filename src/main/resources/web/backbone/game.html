@@ -17,11 +17,14 @@
 
 <div id="middle">
   <div id="board"> </div>
+  <div id="player_move"> </div>
+  
 </div> <!-- CLOSE MIDDLE -->
 
 
 
 <div id="right">
+  <div id="scoreboard"> </div>
 </div>
 
 </div><!-- close main -->
@@ -54,15 +57,12 @@ Palabras.Models.BoardSpace = Backbone.Model.extend();
 Palabras.Models.Board = Backbone.Model.extend();
 
 Palabras.Models.Game = Backbone.Model.extend({
-  url: "api/games/1381106790975",
+  url: "api/games/" + this.id,
   //url: "http://localhost/palabras/src/main/resources/web/backbone/assets/test_new_model.json",
   defaults: {
-    board_size: 15,
-    num_players: 2,
+    boardSize: 15,
+    numPlayers: 2,
     id: null
-  },
-  parse: function(response, xhr){
-    return response;
   }
   
 });
@@ -79,7 +79,7 @@ Palabras.Views.ScoresView = Backbone.View.extend({
       player = this.model.get('players')[i];
       tr = document.createElement("tr");
       td = document.createElement("td");
-      td.innerHTML = player.name;
+      td.innerHTML =  "Player " + (i + 1);     //player.name;
       tr.appendChild(td);
       score = document.createElement("td");
       score.innerHTML = player.score;
@@ -109,7 +109,8 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
     moveProposal.id = this.model.get('id');
     moveProposal.moveString = moveString;
     moveProposal.moveNumber = this.model.get('moves').length + 1;
-    moveProposal.currentTurn = this.model.get('currentTurn'); 
+    moveProposal.currentTurn = this.model.get('currentTurn');
+    model = this.model; 
     $.ajax({
         url: "api/games/" + this.model.get('id'),
         type: 'POST',
@@ -117,8 +118,8 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
         data: JSON.stringify(moveProposal),
         processData: false,
         dataType: 'json'
-    }).done(function( msg ) {
-        alert( "Data Saved: " + JSON.stringify(msg) );
+    }).done(function() {
+       fetchGameAndUpdate(model);
       });  
   },
 
@@ -135,7 +136,7 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
 
   render: function(){
     tiles = this.tiles;
-    var rendered = "<h5>" + this.currentPlayer.name + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
+    var rendered = "<h5>Player " + (this.model.get('currentTurn')+1) + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
     for (var i=0; i < tiles.length; i++){
       rendered += "<td>" + tiles[i].character + "<sub>" + tiles[0].points + "</sub></td>";
     }
@@ -150,9 +151,25 @@ Palabras.Views.BoardView = Backbone.View.extend({
   id: "board",
   tagName: "table",
   render: function(){
-    n = this.model.spaces.length;
+    n = this.model.spaces.length;   
+    //guide row
+    tr = document.createElement("tr");
+    td = document.createElement("td");
+    td.className = "guide corner";
+    tr.appendChild(td);
+    for (var i=1; i <= n; i++){
+      td = document.createElement("td");
+      td.className = "guide";
+      td.innerHTML = i;
+      tr.appendChild(td);
+    }
+    this.$el.append(tr)
     for (var i=0; i < n; i++) {
       tr = document.createElement("tr");
+      td = document.createElement("td");
+      td.className = "guide";
+      td.innerHTML = String.fromCharCode(i + 65);
+      tr.appendChild(td)
       for (var j=0; j < n; j++) {
         space = this.model.spaces[i][j];
         td = document.createElement("td");
@@ -170,9 +187,33 @@ Palabras.Views.BoardView = Backbone.View.extend({
 });
 
 //spaghetti
+function fetchGameAndUpdate(game) {
+  game.fetch({
+
+    success: function(){
+
+      currentPlayer = game.get('players')[game.get('currentTurn')];
+      board = game.get('board');
+      
+      scores = new Palabras.Views.ScoresView({ model: game });
+      boardView = new Palabras.Views.BoardView({ model: board });
+      currentPlayerView = new Palabras.Views.CurrentPlayerView({ model: game });
+      
+      scores.render();
+      currentPlayerView.render();
+      boardView.render();
+
+      $('#player_move').replaceWith(currentPlayerView.el);   
+      $('#board').replaceWith(boardView.el);
+      $('#scoreboard').replaceWith(scores.el);
+    }
+  })
+};
 game = new Palabras.Models.Game();
 currentPlayer = new Palabras.Models.Player();
 board = new Palabras.Models.Board();
+fetchGameAndUpdate(game);
+/*
 game.fetch({
 
   success: function(){
@@ -193,7 +234,7 @@ game.fetch({
     $('#right').append(scores.el);
   }
 });
-
+*/
 </script>
 
 </body>

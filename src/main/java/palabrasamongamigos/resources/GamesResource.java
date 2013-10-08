@@ -2,14 +2,13 @@ package palabrasamongamigos.resources;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
-import com.google.common.base.Optional;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
 import com.yammer.dropwizard.jersey.params.LongParam;
 import com.yammer.metrics.annotation.Timed;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import palabrasamongamigos.MongoResource;
 import palabrasamongamigos.core.*;
 
@@ -32,6 +31,8 @@ public class GamesResource {
 
     @POST
     public GameModel makeMove(@PathParam("id") LongParam gameId, @Valid MoveProposal moveProposal) {
+        //doing this because instantiation default upper-cases moveString - the json data remains "virtual", no instantiation
+        MoveProposal moveProObject = new MoveProposal(moveProposal.getId(),moveProposal.getMoveString(),moveProposal.getMoveNumber(),moveProposal.getCurrentTurn());
 
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", moveProposal.getId());
@@ -67,9 +68,17 @@ public class GamesResource {
             game.setErrorMsg("ERROR - moveNumber does not match number of moves for game id=" + game.getId());
             return game;
         }
-        Move move = moveProposal.newMove(game);
+        Move move = moveProObject.newMove(game);
         if (move.checkMove()){
             move.makeMove();
+            try {
+                String json = mapper.writeValueAsString(game);
+                DBObject gameDoc = (DBObject) JSON.parse(json);
+                coll.remove(query);
+                coll.insert(gameDoc);
+            } catch (Exception e){
+                System.out.println(e);
+            }
         } else {
             game.setErrorMsg("ERROR - invalid move: " + move.getErrorMessage());
         }
@@ -78,14 +87,17 @@ public class GamesResource {
 
     @GET
     public GameModel getGame(@PathParam("id") LongParam id){
+        final long idLong = id.get();
         ObjectMapper mapper = new ObjectMapper();
-        BasicDBObject query = new BasicDBObject("id", id.get());
+        BasicDBObject query = new BasicDBObject("id", idLong);
         BasicDBObject fields = new BasicDBObject("_id",false);
-        String dbJson = coll.find(query,fields).next().toString();
-
+        String dbJson = coll.findOne(query,fields).toString();
         GameModel game = new GameModel();
+        System.out.println(idLong);
+        System.out.println(game.getId());
         try {
             game = mapper.readValue(dbJson, GameModel.class);
+            System.out.println(game.getId());
         }
         //TODO log exceptions
         catch (JsonMappingException e) {

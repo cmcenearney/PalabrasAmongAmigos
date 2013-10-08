@@ -14,6 +14,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.ServerAddress;
+import palabrasamongamigos.health.MongoHealthCheck;
 import palabrasamongamigos.resources.*;
 
 import java.net.UnknownHostException;
@@ -21,6 +22,7 @@ import java.util.Arrays;
 
 public class PalabrasService extends Service<PalabrasConfiguration> {
 
+    private final MongoResource mongoResource = MongoResource.INSTANCE;
 
     public static void main(String[] args) throws Exception {
         new PalabrasService().run(args);
@@ -38,6 +40,7 @@ public class PalabrasService extends Service<PalabrasConfiguration> {
         final String defaultName = configuration.getDefaultName();
         environment.addResource(new NewGameResource(template, defaultName));
         environment.addResource(new GamesResource());
+        environment.addHealthCheck(new MongoHealthCheck(mongoResource));
     }
 
 }

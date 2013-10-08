@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 
-
 /*
 singleton implementations
  - pros and cons vs going all static?

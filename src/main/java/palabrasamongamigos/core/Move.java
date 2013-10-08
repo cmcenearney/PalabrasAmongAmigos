@@ -1,8 +1,7 @@
 package palabrasamongamigos.core;
 
-import com.google.gson.annotations.Expose;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,13 +12,27 @@ public class Move implements Serializable {
 
     public class SideWord implements Serializable {
         @JsonProperty
-        public final String word;
+        private String word;
         @JsonProperty
-        public final int points;
+        private int points;
+        public SideWord(){}
         public SideWord(String s, int y) {
             this.word = s;
             this.points = y;
         }
+        public int getPoints() {
+            return points;
+        }
+        public void setPoints(int points) {
+            this.points = points;
+        }
+        public String getWord() {
+            return word;
+        }
+        public void setWord(String word) {
+            this.word = word;
+        }
+
     }
 
     //attributes
@@ -38,8 +51,6 @@ public class Move implements Serializable {
     @JsonProperty
     private boolean across;
     @JsonProperty
-    protected Integer player_ind;
-    @JsonProperty
     private List<Tile> tiles = new ArrayList<Tile>();
     private Player player;
     protected Board board;
@@ -47,9 +58,10 @@ public class Move implements Serializable {
     //boolean is_first_word;
 
     //constructor(s)
+    public Move(){}
+
     public Move (GameModel game, int row, int column, String word, boolean across, Player player){
         this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.board;
-        this.player_ind = game.getCurrentTurn();
         this.tiles = player.getTiles();
     }
 
@@ -120,7 +132,7 @@ public class Move implements Serializable {
             return false;
         }
         //if it's the first move make sure it touches the center tile
-        if (game.isFirstMove){
+        if (game.getMoves().size() == 0){
             if (across){
                 if (!(row == 7 && column <= 7 && column+word.length() >= 7 )) {
                     errorMessage = "Error - the first move must touch the center tile (H,8).";
@@ -177,11 +189,10 @@ public class Move implements Serializable {
                 return false;
             }
         }
-        return (tile_placed && (game.isFirstMove || intersectsExistingWord) );
+        return (tile_placed && ( (game.getMoves().size() == 0) || intersectsExistingWord) );
     }
 
     public void makeMove() {
-        game.isFirstMove = false;
         int score = 0;
         int multiplicative_factor = 1;
         for (int i = 0; i < word.length(); i++) {
@@ -228,7 +239,7 @@ public class Move implements Serializable {
         //is it a 'bingo'?  (must came after multiplying)
         if (player.getTiles().size() == 0) {score += 50;}
         for (SideWord s : sideWords){
-            score += s.points;
+            score += s.getPoints();
         }
         this.score = score;
         player.setScore(player.getScore() + score);
