@@ -3,7 +3,7 @@
 
 A TermsWithChums spinoff, implemented as client/server.
 
-Goals:
+GOALS
 ------
 
   - have the server be really nice
