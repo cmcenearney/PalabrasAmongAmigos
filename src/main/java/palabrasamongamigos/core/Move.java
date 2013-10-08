@@ -13,7 +13,7 @@ public class Move implements Serializable {
     //attributes
     private GameModel game;
     @JsonProperty
-    private ArrayList<SimpleScoredWord> sideWords = new ArrayList<SimpleScoredWord>();
+    private ArrayList<SideWord> sideWords = new ArrayList<SideWord>();
     @JsonProperty
     private int score;
     @JsonProperty
@@ -93,7 +93,7 @@ public class Move implements Serializable {
             else if (type.equals("double_letter")) { placed_tile_score *= 2;}
             points += placed_tile_score;
             points *= multiplicative_factor;
-            sideWords.add(new SimpleScoredWord(side_word, points));
+            sideWords.add(new SideWord(side_word, points));
             intersectsExistingWord = true;
             return true;
         }
@@ -213,7 +213,7 @@ public class Move implements Serializable {
         score *= multiplicative_factor;
         //is it a 'bingo'?  (must came after multiplying)
         if (player.getTiles().size() == 0) {score += 50;}
-        for (SimpleScoredWord s : sideWords){
+        for (SideWord s : sideWords){
             score += s.getPoints();
         }
         this.score = score;

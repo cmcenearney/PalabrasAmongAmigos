@@ -82,7 +82,7 @@ public class GamesResource {
                 System.out.println(e);
             }
         } else {
-            game.setErrorMsg("ERROR - invalid move: " + move.getErrorMessage());
+            game.setErrorMsg(move.getErrorMessage());
         }
         return game;
     }

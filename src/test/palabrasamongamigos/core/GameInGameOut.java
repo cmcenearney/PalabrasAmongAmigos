@@ -1,12 +1,12 @@
 package palabrasamongamigos.core;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import org.junit.Test;
 import palabrasamongamigos.MongoResource;
 import java.io.IOException;
@@ -65,19 +65,16 @@ public class GameInGameOut {
     }
     @Test
     public void readSetErrMsgSave(){
-        long id = 1381260464812l;
+        //read from db
+        long id = 1381264532488l;
         MongoResource mongo = MongoResource.INSTANCE;
         DBCollection coll =  mongo.getCollection();
         ObjectMapper mapper = new ObjectMapper();
-
         BasicDBObject query = new BasicDBObject("id", id);
         BasicDBObject fields = new BasicDBObject("_id",false);
-
         String dbJson = coll.find(query,fields).next().toString();
         String dbJson1 = coll.findOne(query,fields).toString();
-
         GameModel fromDB = new GameModel();
-
         try {
             fromDB = mapper.readValue(dbJson, GameModel.class);
         }
@@ -95,8 +92,21 @@ public class GameInGameOut {
             System.out.println("IO exception:");
             System.out.println(e);
         }
-        assertEquals(id, fromDB.getId());
-        System.out.println(fromDB.getId());
+
+        //set errorMessage
+        System.out.println(fromDB.getErrorMsg());
+        fromDB.setErrorMsg("ERRORRRRRR");
+        System.out.println(fromDB.getErrorMsg());
+        //save to db
+        try {
+            String json = mapper.writeValueAsString(fromDB);
+            DBObject gameDoc = (DBObject) JSON.parse(json);
+            coll.remove(query);
+            coll.insert(gameDoc);
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
     }
 
 }
