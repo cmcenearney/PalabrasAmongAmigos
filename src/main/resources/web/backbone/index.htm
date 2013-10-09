@@ -202,7 +202,7 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
     tiles = this.tiles;
     var rendered = "<h5>Player " + (this.model.get('currentTurn')+1) + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
     for (var i=0; i < tiles.length; i++){
-      rendered += "<td>" + tiles[i].character + "<sub>" + tiles[0].points + "</sub></td>";
+      rendered += "<td>" + tiles[i].character + "<sub>" + tiles[i].points + "</sub></td>";
     }
     rendered += "</tr></table>";
     rendered += "<button id='shuffle_btn'>Shuffle tiles</button>";
