@@ -25,7 +25,6 @@ public class Move implements Serializable {
     private String errorMessage = "error";
     @JsonProperty
     private boolean across;
-    @JsonProperty
     private List<Tile> tiles = new ArrayList<Tile>();
     private Player player;
     protected Board board;
