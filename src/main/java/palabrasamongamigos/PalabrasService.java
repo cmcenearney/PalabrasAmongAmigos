@@ -32,7 +32,7 @@ public class PalabrasService extends Service<PalabrasConfiguration> {
     @Override
     public void initialize(Bootstrap<PalabrasConfiguration> bootstrap) {
         bootstrap.setName("palabras-among-amigos");
-        bootstrap.addBundle(new ConfiguredAssetsBundle("/web/backbone/", "/"));
+        bootstrap.addBundle(new AssetsBundle("/web/backbone/", "/"));
     }
 
     @Override
