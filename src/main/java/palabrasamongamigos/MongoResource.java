@@ -1,6 +1,5 @@
 package palabrasamongamigos;
 
-
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -22,16 +21,20 @@ public enum MongoResource {
 
     private MongoResource() {
         //MongoClientURI mongoUri  = new MongoClientURI ( (System.getenv("MONGOLAB_URI") != null) ? System.getenv("MONGOLAB_URI") : "mongodb://localhost:27017");
+        //MongoClient mongoClient;
         try {
-            MongoClient mongoClient;
             if (System.getenv("MONGOLAB_URI") != null)  {
+
                 MongoClientURI mongoUri  = new MongoClientURI (System.getenv("MONGOLAB_URI"));
-                mongoClient = new MongoClient( mongoUri );
+                mongoClient = new MongoClient(mongoUri);
+                String dbName = mongoUri.getDatabase();
+                db = mongoClient.getDB( dbName );
+
             }  else {
                 mongoClient = new MongoClient( "localhost" , 27017 );
+                db = mongoClient.getDB( "palabras" );
             }
-
-            db = mongoClient.getDB( "palabras" );
+            //db = mongoClient.getDB( "palabras" );
             collection = db.getCollection("games");
         } catch (UnknownHostException e) {
             System.out.println(e);
