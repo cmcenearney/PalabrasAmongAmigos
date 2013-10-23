@@ -4,23 +4,20 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.*;
+import com.mongodb.util.JSON;
 import palabrasamongamigos.core.GameModel;
 
-import javax.annotation.Nullable;
-import javax.validation.constraints.NotNull;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.UnknownHostException;
-import java.util.Properties;
 
-public enum MongoResource {
+public enum DatabaseAccessor {
+
     INSTANCE;
     private MongoClient mongoClient;
     private DB db;
     DBCollection collection;
 
-    private MongoResource() {
+    private DatabaseAccessor() {
         //MongoClientURI mongoUri  = new MongoClientURI ( (System.getenv("MONGOLAB_URI") != null) ? System.getenv("MONGOLAB_URI") : "mongodb://localhost:27017");
         //MongoClient mongoClient;
         try {
@@ -72,5 +69,17 @@ public enum MongoResource {
             System.out.println(e);
         }
         return game;
+    }
+
+    public void saveGame(GameModel game){
+        ObjectMapper mapper = new ObjectMapper();
+        String json = "";
+        try {
+            json = mapper.writeValueAsString(game);
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        DBObject gameDoc = (DBObject) JSON.parse(json);
+        collection.insert(gameDoc);
     }
 }

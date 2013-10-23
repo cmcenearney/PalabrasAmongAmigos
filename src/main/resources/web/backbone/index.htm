@@ -78,7 +78,23 @@
 </table>
 
 <div id="player_move">
-  <button style="margin-left:226px;" id="start"  onclick="startNewGame()">Start a game</button>
+    
+ 
+
+
+<p>Start a new game by entering your opponent's email: 
+  <input id="opponent_email" />
+  <button onclick="startNewGame()" id="start" style="margin-left:226px;">start new game</button></p>
+
+<p>Or resume an existing game by entering <br />
+  the game id: <input /><br />
+  and your email: <input />
+<button>resume game</button>
+</p>
+
+
+
+
 </div>
 
 </div> <!-- CLOSE MIDDLE -->
@@ -119,7 +135,7 @@ Palabras.Models.BoardSpace = Backbone.Model.extend();
 Palabras.Models.Board = Backbone.Model.extend();
 
 Palabras.Models.Game = Backbone.Model.extend({
-  urlRoot: "api/games"
+  urlRoot: "api/game"
 });
 
 
@@ -176,7 +192,7 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
     moveProposal.currentTurn = this.model.get('currentTurn');
     model = this.model; 
     $.ajax({
-        url: "api/games/" + this.model.get('id'),
+        url: "api/game/" + this.model.get('id'),
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(moveProposal),
@@ -255,13 +271,13 @@ var appGame = new Object();
 
 
 function startNewGame(){ 
-
+  opponentEmail = $('#opponent_email').val(); 
   $.ajax({
-    url: "api/new/",
+    url: "api/game",
     type: 'POST',
-    contentType: 'application/json',
-    processData: false,
-    dataType: 'json'
+    //contentType: 'application/json',
+    //processData: false,
+    data: { email: opponentEmail }
   }).done(function( data, status, xhr ) {
     appGame = new Palabras.Models.Game({id:  xhr.responseJSON.id});
     fetchGameAndUpdate(appGame);

@@ -20,14 +20,14 @@ import java.net.UnknownHostException;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/games/{id}")
+@Path("/game/{id}/move")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class GamesResource {
+public class MovesResource {
 
     protected MongoResource mongo = MongoResource.INSTANCE;
     protected DBCollection coll =  mongo.getCollection();
-    public GamesResource() {}
+    public MovesResource() {}
 
     @POST
     public GameModel makeMove(@PathParam("id") LongParam gameId, @Valid MoveProposal moveProposal) {
@@ -118,40 +118,4 @@ public class GamesResource {
     }
 }
 
-/*
-curl http://localhost:8080/api/games/1381106790975  -X POST -H "Content-Type: application/json" -d '{ "id": 1381106790975, "moveString": "H,8,>,HOG", "moveNumber": 1, "currentTurn": 0}'
 
-        if ( move.checkMove() )  {
-            int score = move.makeMove();
-            model.moves.add(move);
-            view.printLine("Well done, that move scored " + score + " points.");
-            int new_total_score = current_player.getScore() + score;
-            current_player.setScore( new_total_score );
-            while (current_player.getTiles().size() < model.num_tiles && model.tile_bag.getTiles().size() > 0){
-                current_player.addTile(model.tile_bag.randomDraw());
-            }
-            return true;
-        }
-        else {
-            //print message? Move will print its own details about why not valid?
-            view.printLine(move.getError_message());
-            return false;
-        }
-consumes json a la
-      {
-        "id": 123456789,
-        "moveString": "a,12,>,word",
-        "moveNumber": 2,
-        "currentTurn": 0
-      }
-
-
-validate:
-  - load from DB game[@id = json.id]
-  - check that:
-    - json.moveNumber == game.moves.length - 1
-    - game.currentTurn == json.currentTurn
-  - if move is valid
-    - make move
-    return game
-*/

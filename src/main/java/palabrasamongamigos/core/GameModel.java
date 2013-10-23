@@ -37,12 +37,16 @@ public class GameModel implements Serializable{
     //constructors
     public GameModel(){
         this.id = produceUniqueID();
-        addPlayers();
+        //addPlayers();
+    }
+    public GameModel(Player player){
+        this.id = produceUniqueID();
+        this.players.add(player);
     }
 
     public GameModel(long id){
         this.id = id;
-        addPlayers();
+        //addPlayers();
     }
 
     //getters + setters
@@ -81,6 +85,7 @@ public class GameModel implements Serializable{
     }
 
     //methods
+    /*
     public void addPlayers(){
         for (int i = 0; i < numPlayers; i++){
             //TODO: handle player name
@@ -92,7 +97,7 @@ public class GameModel implements Serializable{
             }
         }
     }
-
+     */
     public boolean validWord(String word){
         return this.dictionary.validWord(word.toUpperCase());
     }

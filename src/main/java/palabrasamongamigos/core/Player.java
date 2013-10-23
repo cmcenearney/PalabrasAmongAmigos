@@ -13,24 +13,26 @@ public class Player implements Serializable, Comparable<Player > {
 
     //attributes
     @JsonProperty
+    private String email;
+    @JsonProperty
     private String name;
     @JsonProperty
     private ArrayList<Tile> tiles = new ArrayList<Tile>();
     @JsonProperty
     private int score = 0;
-    private GameModel game;
+    //private GameModel game;
 
 
     //constructors
     public Player() {}
 
-    public Player(GameModel game) {
-        this.game = game;
+    public Player(String email) {
+        this.email = email;
     }
 
-    public Player(String name, GameModel game) {
+    public Player(String name, String email) {
         this.name = name;
-        this.game = game;
+        this.email = email;
     }
 
     public Player(String name, ArrayList<Tile> tiles, int score) {
@@ -58,6 +60,14 @@ public class Player implements Serializable, Comparable<Player > {
     }
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     //implement Comparable
@@ -101,6 +111,7 @@ public class Player implements Serializable, Comparable<Player > {
     }
 
     //doesn't handle user error: if exchanges contains a char not in tiles
+    /*
     public ArrayList<String> exchangeTiles(ArrayList<String> exchanges){
         ArrayList<Tile> ex_tiles = new ArrayList<Tile>();
         while (exchanges.size() > 0){
@@ -121,11 +132,11 @@ public class Player implements Serializable, Comparable<Player > {
         }
         return exchanges;
     }
-
+    */
     /*
     Fisher-Yates shuffle algorithm
     http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
-    */
+
     public void shuffleTiles(){
         for (int i=GameModel.num_tiles-1; i > 0; i--){
             int random_index = (int) Math.floor((Math.random()*i)+0);
@@ -134,5 +145,5 @@ public class Player implements Serializable, Comparable<Player > {
             tiles.set(i, tmp);
         }
     };
-
+    */
 }

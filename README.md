@@ -39,14 +39,28 @@ API
 ---
 
 All the talking is in json. Current endpoints:
+
 ```
 POST    /api/new           accepts new game params, returns new game   
 GET     /api/games/{id}    gets game with the id   
-POST    /api/games/{id}    accepts a "move proposal", returns game (either move is made, or the game's errorMsg != null)   
+POST    /api/game          create a new game, data posted is form style, email: opponents_email
+
 ```
-Under consideration:
-```
-GET    /api/games          return list of game ids
-```
+
+Overview
+--------
+
+1. user loads palabras, sees splash page with input for opponent's email
+2. enters email, hits submit, email is posted to  /api/game
+3. request routed to GameResource 
+   - create Player opponent = new Player (email)
+   - create GameModel game = new GameModel(opponent)
+   - send email to opponent with link to game ( palabras.com/game/{game.id} )
+   - save game
+   - send game link back up to first player's client
+
+
+
+
 
 

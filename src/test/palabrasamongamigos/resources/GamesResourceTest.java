@@ -1,7 +1,6 @@
 package palabrasamongamigos.resources;
 
 import com.yammer.dropwizard.jersey.params.LongParam;
-import org.eclipse.jetty.util.ajax.JSON;
 import org.junit.Test;
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.Move;
@@ -12,7 +11,7 @@ import static org.junit.Assert.assertThat;
 
 public class GamesResourceTest {
 
-    private final GamesResource gamesResource = new GamesResource();
+    private final MovesResource gamesResource = new MovesResource();
 
     @Test
     public void getsGameWithCorrectId(){
