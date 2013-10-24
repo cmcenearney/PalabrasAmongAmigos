@@ -17,6 +17,9 @@ GOALS
 First round interation hacked together with [Dropwizard](https://github.com/dropwizard/dropwizard) and [Backbone](http://backbonejs.org/) and mongodb
 
 
+running locally
+----------------
+
 Tested on OSX. With mongodb running on localhost, port 27017,  ¡Palabras! should be runnable with
 
 ```
@@ -41,10 +44,9 @@ API
 All the talking is in json. Current endpoints:
 
 ```
-POST    /api/new           accepts new game params, returns new game   
-GET     /api/games/{id}    gets game with the id   
-POST    /api/game          create a new game, data posted is form style, email: opponents_email
-        /api/game/{id}/move
+GET     /api/game/{id}          get game by ID
+POST    /api/game               create a new game, data posted is form style, email: opponents_email
+POST    /api/game/{id}/move     make a move
 ```
 
 Overview
@@ -87,9 +89,28 @@ Email
   - class for emails , not working yet
 
 GameModel
-  - fillTileRack - fills a Player's tile rack with random draws, defaults to currentPlayer
-  - 
+  - fillTileRack - fills a Player's tile rack with random draws, defaults to currentPlayer 
 
 Move
   - new rules methods certify{SomeRule}
-  - further refactoring will require set operations? how else to replace the space-by-space iteration method of checkings?
+  - further refactoring will require set operations? how else to replace the space-by-space iteration method of checking?
+
+
+backlog
+-------
+- why isn't errorMessage getting set?
+- get rid of MoveProposal
+- separate Move history from game model (note: new way of determining isFirstMove might be needed)
+- unit tests for all core game logic
+- endpoint tests
+- version the api
+- better error handling
+  - string messages as final vars where appropriate
+  - exceptions where appropriate
+  - investigate java error class(es)
+- switch to rdb/orm
+- read up on Mockito
+- revisit http codes and methods
+- why doesn't ConfiguredAssetsBundle work?
+
+

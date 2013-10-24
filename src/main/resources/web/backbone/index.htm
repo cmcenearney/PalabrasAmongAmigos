@@ -80,16 +80,15 @@
 <div id="player_move">
     
  
-
+<p>Bienvenido! Please enter your email address: <input id="user_email"/> </p>
 
 <p>Start a new game by entering your opponent's email: 
   <input id="opponent_email" />
   <button onclick="startNewGame()" id="start" style="margin-left:226px;">start new game</button></p>
 
 <p>Or resume an existing game by entering <br />
-  the game id: <input /><br />
-  and your email: <input />
-<button>resume game</button>
+  the game id: <input id="resume_game_id"/>
+<button onclick="resumeGame()">resume game</button>
 </p>
 
 

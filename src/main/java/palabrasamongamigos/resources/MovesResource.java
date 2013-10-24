@@ -9,6 +9,7 @@ import com.mongodb.util.JSON;
 import com.yammer.dropwizard.jersey.params.LongParam;
 import com.yammer.metrics.annotation.Timed;
 
+import palabrasamongamigos.DatabaseAccessor;
 import palabrasamongamigos.MongoResource;
 import palabrasamongamigos.core.*;
 
@@ -25,8 +26,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @Consumes(MediaType.APPLICATION_JSON)
 public class MovesResource {
 
-    protected MongoResource mongo = MongoResource.INSTANCE;
-    protected DBCollection coll =  mongo.getCollection();
+    private final DatabaseAccessor db = DatabaseAccessor.INSTANCE;
+
     public MovesResource() {}
 
     @POST
@@ -34,30 +35,9 @@ public class MovesResource {
         //doing this because instantiation default upper-cases moveString - the json data remains "virtual", no instantiation
         MoveProposal moveProObject = new MoveProposal(moveProposal.getId(),moveProposal.getMoveString(),moveProposal.getMoveNumber(),moveProposal.getCurrentTurn());
 
-        ObjectMapper mapper = new ObjectMapper();
-        BasicDBObject query = new BasicDBObject("id", moveProposal.getId());
-        BasicDBObject fields = new BasicDBObject("_id",false);
+        GameModel game = db.getById(moveProObject.getId());
 
-        //should this throw an exception if no matching doc found? what kind?
-        String dbJson = coll.find(query,fields).next().toString();
-
-        GameModel game = new GameModel();
-        try {
-            game = mapper.readValue(dbJson, GameModel.class);
-        }
-        //TODO log exceptions
-        catch (JsonMappingException e) {
-            System.out.println("mapping exception:");
-            System.out.println(e);
-            System.out.println(e.getPath());
-        }
-        catch (JsonParseException e) {
-            System.out.println("parse exception:");
-            System.out.println(e);
-        }
-        catch (IOException e){
-            System.out.println(e);
-        }
+        //these are application errors and the http response should have appropriate code
         if (gameId.get() != moveProposal.getId()) {
             game.setErrorMsg("ERROR - url ID " + gameId.get() + "does not ID in json data " + moveProposal.getId() );
             return game;
@@ -70,52 +50,17 @@ public class MovesResource {
             game.setErrorMsg("ERROR - moveNumber does not match number of moves for game id=" + game.getId());
             return game;
         }
+
         Move move = moveProObject.newMove(game);
         if (move.checkMove()){
             move.makeMove();
-            try {
-                String json = mapper.writeValueAsString(game);
-                DBObject gameDoc = (DBObject) JSON.parse(json);
-                coll.remove(query);
-                coll.insert(gameDoc);
-            } catch (Exception e){
-                System.out.println(e);
-            }
         } else {
             game.setErrorMsg(move.getErrorMessage());
         }
+        db.saveGame(game);
         return game;
     }
 
-    @GET
-    public GameModel getGame(@PathParam("id") LongParam id){
-        final long idLong = id.get();
-        ObjectMapper mapper = new ObjectMapper();
-        BasicDBObject query = new BasicDBObject("id", idLong);
-        BasicDBObject fields = new BasicDBObject("_id",false);
-        String dbJson = coll.findOne(query,fields).toString();
-        GameModel game = new GameModel();
-        System.out.println(idLong);
-        System.out.println(game.getId());
-        try {
-            game = mapper.readValue(dbJson, GameModel.class);
-            System.out.println(game.getId());
-        }
-        //TODO log exceptions
-        catch (JsonMappingException e) {
-            System.out.println("mapping exception:");
-            System.out.println(e);
-            System.out.println(e.getPath());
-        }
-        catch (JsonParseException e) {
-            System.out.println("parse exception:");
-            System.out.println(e);
-        }
-        catch (IOException e){
-            System.out.println(e);
-        }
-        return game;
-    }
 }
 
 

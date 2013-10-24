@@ -11,7 +11,6 @@ import com.yammer.metrics.annotation.Timed;
 import palabrasamongamigos.DatabaseAccessor;
 import palabrasamongamigos.MongoResource;
 import palabrasamongamigos.core.Email;
-import palabrasamongamigos.core.Game;
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.Player;
 
