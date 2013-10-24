@@ -71,8 +71,9 @@ week of Oct 16-24
 - deployed to heroku (non-networked version): palabras-among-amigos.herokuapp.com
 - change endpoints
 - client
-  - upfront ask for opponent email or gameID + user email
-  - 
+  - ask for email
+  - then ask for opponent email (new game) or gameID (resume game)
+
 
 Player
   - add String email
