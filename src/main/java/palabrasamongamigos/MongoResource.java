@@ -6,13 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.*;
 import palabrasamongamigos.core.GameModel;
 
-import javax.annotation.Nullable;
-import javax.validation.constraints.NotNull;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.UnknownHostException;
-import java.util.Properties;
 
 public enum MongoResource {
     INSTANCE;

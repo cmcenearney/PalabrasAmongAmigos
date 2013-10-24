@@ -71,8 +71,7 @@ public class Player implements Serializable, Comparable<Player > {
     }
 
     //implement Comparable
-    public int compareTo(Player p)
-    {
+    public int compareTo(Player p) {
         return(score - p.score);
     }
 

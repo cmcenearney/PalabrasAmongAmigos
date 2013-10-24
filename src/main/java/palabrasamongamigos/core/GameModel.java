@@ -118,6 +118,27 @@ public class GameModel implements Serializable{
         }
     }
 
+    public ArrayList<String> exchangeTiles(Player player, ArrayList<String> exchanges){
+        ArrayList<Tile> ex_tiles = new ArrayList<Tile>();
+        while (exchanges.size() > 0){
+            String s = exchanges.get(0);
+            for (Tile t : player.getTiles()){
+                if (t.getCharacter().equals(s)){
+                    tileBag.addTile(t);
+                    ex_tiles.add(t);
+                    exchanges.remove(s);
+                }
+            }
+        }
+        for (Tile t : ex_tiles){
+            player.getTiles().remove(t);
+        }
+        while (player.getTiles().size() < GameModel.num_tiles){
+            player.getTiles().add(tileBag.randomDraw());
+        }
+        return exchanges;
+    }
+
     public boolean validWord(String word){
         return this.dictionary.validWord(word.toUpperCase());
     }

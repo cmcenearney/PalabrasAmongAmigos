@@ -1,7 +1,6 @@
 package palabrasamongamigos.core;
 
 import org.junit.Test;
-
 import static com.mongodb.util.MyAsserts.assertTrue;
 
 public class MoveErrorsTest {
@@ -10,7 +9,7 @@ public class MoveErrorsTest {
 
     @Test
     public void wordTest() {
-       assertTrue(game.validWord("cam"));
+       assertTrue(game.validWord("core"));
     }
 
 
