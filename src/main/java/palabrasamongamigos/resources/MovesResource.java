@@ -1,25 +1,14 @@
 package palabrasamongamigos.resources;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.*;
-import com.mongodb.util.JSON;
 import com.yammer.dropwizard.jersey.params.LongParam;
-import com.yammer.metrics.annotation.Timed;
-
 import palabrasamongamigos.DatabaseAccessor;
-import palabrasamongamigos.MongoResource;
-import palabrasamongamigos.core.*;
+import palabrasamongamigos.core.GameModel;
+import palabrasamongamigos.core.Move;
+import palabrasamongamigos.core.MoveProposal;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.net.UnknownHostException;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Path("/game/{id}/move")
 @Produces(MediaType.APPLICATION_JSON)
@@ -37,7 +26,8 @@ public class MovesResource {
 
         GameModel game = db.getById(moveProObject.getId());
 
-        //these are application errors and the http response should have appropriate code
+        //TODO: these are application errors and the http response should have appropriate code
+        // error message should be part of response, not game object
         if (gameId.get() != moveProposal.getId()) {
             game.setErrorMsg("ERROR - url ID " + gameId.get() + "does not ID in json data " + moveProposal.getId() );
             return game;

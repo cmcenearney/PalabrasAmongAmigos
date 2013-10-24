@@ -4,10 +4,7 @@ import com.yammer.dropwizard.jersey.params.LongParam;
 import palabrasamongamigos.DatabaseAccessor;
 import palabrasamongamigos.core.GameModel;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/game/{id}")
@@ -22,6 +19,14 @@ public class GameResource {
     public GameModel getGame(@PathParam("id") LongParam idParam) {
         final long id = idParam.get();
         return db.getById(id);
+    }
+
+    @POST
+    public GameModel getPlayerViewGame(@PathParam("id") LongParam idParam, @FormParam("userEmail") String userEmail) {
+        final long id = idParam.get();
+        GameModel game = db.getById(id);
+        //TODO: filter out tiles of all players but the requesting player
+        return game;
     }
 }
 

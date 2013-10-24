@@ -10,7 +10,7 @@ import palabrasamongamigos.core.GameModel;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-public enum DatabaseAccessor {
+public enum DatabaseAccessor implements DatabaseAccess{
 
     INSTANCE;
     private MongoClient mongoClient;
@@ -49,11 +49,11 @@ public enum DatabaseAccessor {
         BasicDBObject fields = new BasicDBObject("_id",false);
         String dbJson = collection.findOne(query,fields).toString();
         GameModel game = new GameModel();
-        System.out.println(id);
-        System.out.println(game.getId());
+        //System.out.println(id);
+        //System.out.println(game.getId());
         try {
             game = mapper.readValue(dbJson, GameModel.class);
-            System.out.println(game.getId());
+            //System.out.println(game.getId());
         }
         //TODO log exceptions
         catch (JsonMappingException e) {

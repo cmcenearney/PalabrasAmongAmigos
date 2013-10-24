@@ -66,7 +66,7 @@ public class MoveProposal {
         int column = Integer.parseInt(args[1]) - 1;
         boolean across = (args[2].equals(">"));
         String word = args[3];
-        Player currentPlayer = game.getPlayers().get(game.currentTurn);
+        Player currentPlayer = game.getPlayers().get(game.getCurrentTurn());
         Move move = new Move(game, row, column, word, across, currentPlayer);
         return move;
     }

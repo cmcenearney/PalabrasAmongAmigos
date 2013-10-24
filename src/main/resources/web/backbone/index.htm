@@ -190,7 +190,7 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
     moveProposal.currentTurn = this.model.get('currentTurn');
     model = this.model; 
     $.ajax({
-        url: "api/game/" + this.model.get('id'),
+        url: "api/game/" + this.model.get('id') + "/move",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(moveProposal),

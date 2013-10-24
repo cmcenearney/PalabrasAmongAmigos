@@ -34,7 +34,7 @@ public class Move implements Serializable {
     public Move(){}
 
     public Move (GameModel game, int row, int column, String word, boolean across, Player player){
-        this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.board;
+        this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.getBoard();
         this.tiles = player.getTiles();
     }
 
@@ -171,10 +171,7 @@ public class Move implements Serializable {
 
     public boolean checkMove() {
         //all certify___ methods must return true
-        if (! ( certifyValidWord() && certifyFirstMoveCenterTile() && certifyMoveWorks() ) ) {
-            return false;
-        }
-        return true;
+        return ( certifyValidWord() && certifyFirstMoveCenterTile() && certifyMoveWorks() );
     }
 
     public void makeMove() {
@@ -228,11 +225,11 @@ public class Move implements Serializable {
         }
         this.score = score;
         player.setScore(player.getScore() + score);
-        while (player.getTiles().size() < game.num_tiles && game.tileBag.getTiles().size() > 0){
-            player.addTile(game.tileBag.randomDraw());
+        while (player.getTiles().size() < game.num_tiles && game.getTileBag().getTiles().size() > 0){
+            player.addTile(game.getTileBag().randomDraw());
         }
-        game.currentTurn = (game.currentTurn + 1) % game.numPlayers;
-        game.moves.add(this);
+        game.setCurrentTurn((game.getCurrentTurn() + 1) % game.getNumPlayers());
+        game.getMoves().add(this);
     }
 
     //public int scoreSideWord(){}

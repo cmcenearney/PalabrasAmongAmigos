@@ -15,24 +15,24 @@ public class GameModel implements Serializable{
     //attributes
     public static final int num_tiles = 7;
     private Dictionary dictionary = Dictionary.getDictionaryInstance();
-    private String _id;
+    //private String _id;
 
     @JsonProperty
-    protected Board board = new Board();
+    private Board board = new Board();
     @JsonProperty
-    protected List<Player> players = new ArrayList<Player>();
+    private List<Player> players = new ArrayList<Player>();
     @JsonProperty
-    protected List<Move> moves = new ArrayList<Move>();
+    private List<Move> moves = new ArrayList<Move>();
     @JsonProperty
-    protected Integer numPlayers = 2;
+    private Integer numPlayers = 2;
     @JsonProperty
-    protected Integer currentTurn = 0;
+    private Integer currentTurn = 0;
     @JsonProperty
-    protected TileBag tileBag = new TileBag();
+    private TileBag tileBag = new TileBag();
     @JsonProperty
-    protected long id;
+    private long id;
     @JsonProperty
-    protected String errorMsg=null;
+    private String errorMsg=null;
 
     //constructors
     public GameModel(){
@@ -63,6 +63,10 @@ public class GameModel implements Serializable{
     public Integer getCurrentTurn() {
         return currentTurn;
     }
+    public void setCurrentTurn(Integer currentTurn) {
+        this.currentTurn = currentTurn;
+    }
+
     public TileBag getTileBag() {
         return tileBag;
     }
@@ -99,6 +103,11 @@ public class GameModel implements Serializable{
         }
     }
      */
+
+    public void addPlayer(Player player){
+        players.add(player);
+        fillTileRack(player);
+    }
 
     public void fillTileRack(){
         fillTileRack(players.get(currentTurn));
