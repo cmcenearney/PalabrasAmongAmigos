@@ -8,4 +8,6 @@ public interface DatabaseAccess {
 
     void saveGame(GameModel game);
 
+    void deleteGame(GameModel game);
+
 }

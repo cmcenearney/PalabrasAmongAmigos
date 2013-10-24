@@ -82,4 +82,13 @@ public enum DatabaseAccessor implements DatabaseAccess{
         DBObject gameDoc = (DBObject) JSON.parse(json);
         collection.insert(gameDoc);
     }
+
+    public void deleteGame(GameModel game){
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject query = new BasicDBObject("id", game.getId());
+        BasicDBObject fields = new BasicDBObject("_id",false);
+        DBObject target = collection.findOne(query,fields);
+        collection.remove(target);
+
+    }
 }
