@@ -78,8 +78,7 @@
 </table>
 
 <div id="player_move">
-    
- 
+
 <p>Bienvenido! Please enter your email address: <input id="user_email"/> </p>
 
 <p>Start a new game by entering your opponent's email: 
@@ -270,13 +269,14 @@ var appGame = new Object();
 
 
 function startNewGame(){ 
+  userEmail = $('#user_email').val(); 
   opponentEmail = $('#opponent_email').val(); 
   $.ajax({
     url: "api/game",
     type: 'POST',
     //contentType: 'application/json',
     //processData: false,
-    data: { email: opponentEmail }
+    data: { opponentEmail: opponentEmail, userEmail: userEmail }
   }).done(function( data, status, xhr ) {
     appGame = new Palabras.Models.Game({id:  xhr.responseJSON.id});
     fetchGameAndUpdate(appGame);

@@ -118,4 +118,9 @@ backlog
 - improve dictionary
 - redo interface: row, col, up/down, word - onType, characyters appear on board
 - onSubmit, in the client, a beachball/modal window, something to show the request is pending 
-
+- setup options
+  - up to 4 players
+  - 7 tiles or 9
+  - scrabble layout or WWF
+- computer player
+- persistent user profiles
