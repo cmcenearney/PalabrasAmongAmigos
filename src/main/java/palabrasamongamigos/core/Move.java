@@ -29,7 +29,6 @@ public class Move implements Serializable {
     private Player player;
     protected Board board;
     boolean intersectsExistingWord = false;
-    //boolean is_first_word;
 
     //constructor(s)
     public Move(){}
@@ -44,11 +43,81 @@ public class Move implements Serializable {
         return errorMessage;
     }
 
+    //rules methods
+    //return boolean and have side-effect of setting errorMessage
+    public boolean certifyValidWord(){
+        if (!game.validWord(word)) {
+            errorMessage = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
+            return false;
+        }
+        return true;
+    }
+
+    public boolean certifyFirstMoveCenterTile(){
+        //if it's the first move make sure it touches the center tile
+        if (game.getMoves().size() == 0){
+            if (across){
+                if (!(row == 7 && column <= 7 && column+word.length() >= 7 )) {
+                    errorMessage = "Error - the first move must touch the center tile (H,8).";
+                    return false;
+                }
+            }
+            else {
+                if (!(column == 7 && row <= 7 && row+word.length() >= 7 )) {
+                    errorMessage = "Error - the first move must touch the center tile (H,8).";
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean certifyMoveWorks(){
+        //iterate over the proposed word / board spaces and check at each space/letter that it is possible
+        boolean tile_placed = false;
+        ArrayList<String> tile_values = player.tileValues();
+        for (int i = 0; i < word.length(); i++) {
+            int x = row; int y = column;
+            String current_letter = Character.toString(word.charAt(i));
+            if (across) { y = column + i; } else {  x = row + i; }
+            if (y >= Board.boardSize || x >= Board.boardSize) {
+                errorMessage = "Sorry, '" + word + "' is too big for that spot.";
+                return false;
+            }
+            BoardSpace current_space = board.getSpace(x,y);
+            boolean space_occupied = current_space.isOccupied();
+            String current_space_value = current_space.getValue();
+            // there is a letter on the space and it's *not* the right letter of the word we're checking
+            if (space_occupied && !current_letter.equals(current_space_value)) {
+                return false;
+            }
+            // there is a letter on the space and it *is* the right letter of the word we're checking
+            else if (space_occupied && current_letter.equals(current_space_value)) {
+                intersectsExistingWord = true;
+                continue;
+            }
+            // the space is empty and player has a tile for the letter
+            else if (!space_occupied && tile_values.contains(current_letter)) {
+                if ( sideWord(across, current_letter, x,y)) {
+                    tile_values.remove(current_letter);
+                    tile_placed = true;
+                }
+                else {
+                    return false;
+                }
+            }
+            // the space is empty and player doesn't have a tile for the letter
+            else if (!space_occupied && !tile_values.contains(current_letter)) {
+                return false;
+            }
+        }
+        return (tile_placed && ( (game.getMoves().size() == 0) || intersectsExistingWord) );
+    }
+
     //methods
     public boolean sideWord(boolean across, String character, int row, int column){
         String side_word = character;
         int points = 0;
-
         // look in the positive direction starting one tile over, if occupied, append to side-word, continue
         int pos_ind;   if (across) {pos_ind = row+1;} else {pos_ind = column+1;}
         BoardSpace next_space;
@@ -82,7 +151,7 @@ public class Move implements Serializable {
             return false;
         }
         else if (side_word.length() > 1 && game.validWord(side_word)){
-            //score the word
+            //score the placed tile (only freshly placed tiles score extra points)
             String type = board.getSpace(row, column).getType();
             int multiplicative_factor = 1;
             if (type.equals("triple_word")) { multiplicative_factor = 3;}
@@ -99,71 +168,13 @@ public class Move implements Serializable {
         return false;
     }
 
+
     public boolean checkMove() {
-        //first check that it's a word
-        if (!game.validWord(word)) {
-            errorMessage = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
+        //all certify___ methods must return true
+        if (! ( certifyValidWord() && certifyFirstMoveCenterTile() && certifyMoveWorks() ) ) {
             return false;
         }
-        //if it's the first move make sure it touches the center tile
-        if (game.getMoves().size() == 0){
-            if (across){
-                if (!(row == 7 && column <= 7 && column+word.length() >= 7 )) {
-                    errorMessage = "Error - the first move must touch the center tile (H,8).";
-                    return false;
-                }
-            }
-            else {
-                if (!(column == 7 && row <= 7 && row+word.length() >= 7 )) {
-                    errorMessage = "Error - the first move must touch the center tile (H,8).";
-                    return false;
-                }
-            }
-        }
-        //then check that it will work
-        boolean tile_placed = false;
-        ArrayList<String> tile_values = player.tileValues();
-        //iterate over the proposed word / board spaces and check at each space/letter that it is possible
-        for (int i = 0; i < word.length(); i++) {
-            int x = row; int y = column;
-            String current_letter = Character.toString(word.charAt(i));
-            if (across) { y = column + i; } else {  x = row + i; }
-            if (y >= Board.boardSize || x >= Board.boardSize) {
-                errorMessage = "Sorry, '" + word + "' is too big for that spot.";
-                return false;
-            }
-            BoardSpace current_space = board.getSpace(x,y);
-            boolean space_occupied = current_space.isOccupied();
-            String current_space_value = current_space.getValue();
-
-            // there is a letter on the space and it's *not* the right letter of the word we're checking
-            if (space_occupied && !current_letter.equals(current_space_value)) {
-                return false;
-            }
-
-            // there is a letter on the space and it *is* the right letter of the word we're checking
-            else if (space_occupied && current_letter.equals(current_space_value)) {
-                intersectsExistingWord = true;
-                continue;
-            }
-
-            // the space is empty and player has a tile for the letter
-            else if (!space_occupied && tile_values.contains(current_letter)) {
-                if ( sideWord(across, current_letter, x,y)) {
-                    tile_values.remove(current_letter);
-                    tile_placed = true;
-                }
-                else {
-                    return false;
-                }
-            }
-
-            // the space is empty and player doesn't have a tile for the letter
-            else if (!space_occupied && !tile_values.contains(current_letter)) {
-                return false;
-            }
-        }
-        return (tile_placed && ( (game.getMoves().size() == 0) || intersectsExistingWord) );
+        return true;
     }
 
     public void makeMove() {
@@ -223,5 +234,7 @@ public class Move implements Serializable {
         game.currentTurn = (game.currentTurn + 1) % game.numPlayers;
         game.moves.add(this);
     }
+
+    //public int scoreSideWord(){}
 
 }

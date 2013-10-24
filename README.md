@@ -44,7 +44,7 @@ All the talking is in json. Current endpoints:
 POST    /api/new           accepts new game params, returns new game   
 GET     /api/games/{id}    gets game with the id   
 POST    /api/game          create a new game, data posted is form style, email: opponents_email
-
+        /api/game/{id}/move
 ```
 
 Overview
@@ -54,13 +54,42 @@ Overview
 2. enters email, hits submit, email is posted to  /api/game
 3. request routed to GameResource 
    - create Player opponent = new Player (email)
-   - create GameModel game = new GameModel(opponent)
+   - create GameModel game = new GameModel (opponent)
    - send email to opponent with link to game ( palabras.com/game/{game.id} )
    - save game
    - send game link back up to first player's client
 
+- how will the client's "identity" be maintained?
+  - it can pass user id (email probably for now) and game id in each request
+    - pro: less client dependent than a cookie (cookies are web-specific right?)
 
 
+week of Oct 16-24
+----------------
+- deployed to heroku (non-networked version): palabras-among-amigos.herokuapp.com
+- change endpoints
+- client
+  - upfront ask for opponent email or gameID + user email
+  - 
 
+Player
+  - add String email
+  - remove references to Game
+    - should drawTiles, exchangeTiles be methods of Player or Game? 
+      - I think Game, because the tileBag and tiles are a property of a game, conceptually, if not practically, a player can play many games
+    - is it advantageous to have Player less coupled to a Game instance?
 
+DatabaseAccessor
+  - singleton class, same as MongoResource + methods for getting and saving games
+  - maybe have an interface specify this? would that make it easier to swap DB's / keep all DB-dependent work in one place?
 
+Email
+  - class for emails , not working yet
+
+GameModel
+  - fillTileRack - fills a Player's tile rack with random draws, defaults to currentPlayer
+  - 
+
+Move
+  - new rules methods certify{SomeRule}
+  - further refactoring will require set operations? how else to replace the space-by-space iteration method of checkings?

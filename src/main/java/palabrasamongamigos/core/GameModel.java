@@ -41,6 +41,7 @@ public class GameModel implements Serializable{
     }
     public GameModel(Player player){
         this.id = produceUniqueID();
+        fillTileRack(player);
         this.players.add(player);
     }
 
@@ -98,6 +99,16 @@ public class GameModel implements Serializable{
         }
     }
      */
+
+    public void fillTileRack(){
+        fillTileRack(players.get(currentTurn));
+    }
+    public void fillTileRack(Player player){
+        while (player.getTiles().size() < num_tiles && tileBag.getTiles().size() > 0){
+            player.addTile(tileBag.randomDraw());
+        }
+    }
+
     public boolean validWord(String word){
         return this.dictionary.validWord(word.toUpperCase());
     }
@@ -105,18 +116,6 @@ public class GameModel implements Serializable{
     //good enough for now
     long produceUniqueID(){
         return System.currentTimeMillis();
-    }
-
-    public void serializeToFile(){
-        try{
-            FileOutputStream fout = new FileOutputStream("resources/games/" + this.id + ".ser" );
-            ObjectOutputStream oos = new ObjectOutputStream(fout);
-            oos.writeObject(this);
-            oos.close();
-            System.out.println("Game saved");
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
     }
 
 
