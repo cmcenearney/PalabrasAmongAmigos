@@ -196,8 +196,11 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
         data: JSON.stringify(moveProposal),
         processData: false,
         dataType: 'json'
-    }).done(function() {
-       fetchGameAndUpdate(model);
+    }).done(function( data, status, xhr ) {
+        if (xhr.responseJSON.errorMsg != null ){
+          alert(xhr.responseJSON.errorMsg); 
+        }
+        fetchGameAndUpdate(model);
       });  
   },
 

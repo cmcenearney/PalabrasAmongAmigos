@@ -22,20 +22,26 @@ public class Move implements Serializable {
     private int column;
     @JsonProperty
     private String word;
-    private String errorMessage = "error";
+    private String errorMessage = null;
     @JsonProperty
     private boolean across;
     private List<Tile> tiles = new ArrayList<Tile>();
     private Player player;
-    protected Board board;
+    private Board board;
     boolean intersectsExistingWord = false;
+
+    //string error messages
+    public static final String firstMoveCenterTile = "Error - the first move must touch the center tile (H,8).";
+    public static final String invalidWord = "Not a valid word (in our dictionary)";
+    public static final String genericError = "Error - move not valid";
+    public static final String wordTooBig = "Sorry, your word  is too big for that spot.";
 
     //constructor(s)
     public Move(){}
 
     public Move (GameModel game, int row, int column, String word, boolean across, Player player){
-        this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.getBoard();
-        this.tiles = player.getTiles();
+        this.game = game; this.row = row; this.column = column; this.word = word.toUpperCase(); this.across = across; this.player = player; this.board = game.getBoard();
+        this.tiles = this.player.getCopyOfTiles();
     }
 
     //getters + setters
@@ -47,7 +53,7 @@ public class Move implements Serializable {
     //return boolean and have side-effect of setting errorMessage
     public boolean certifyValidWord(){
         if (!game.validWord(word)) {
-            errorMessage = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
+            errorMessage = invalidWord;
             return false;
         }
         return true;
@@ -58,13 +64,13 @@ public class Move implements Serializable {
         if (game.getMoves().size() == 0){
             if (across){
                 if (!(row == 7 && column <= 7 && column+word.length() >= 7 )) {
-                    errorMessage = "Error - the first move must touch the center tile (H,8).";
+                    errorMessage = firstMoveCenterTile;
                     return false;
                 }
             }
             else {
                 if (!(column == 7 && row <= 7 && row+word.length() >= 7 )) {
-                    errorMessage = "Error - the first move must touch the center tile (H,8).";
+                    errorMessage = firstMoveCenterTile;
                     return false;
                 }
             }
@@ -81,7 +87,7 @@ public class Move implements Serializable {
             String current_letter = Character.toString(word.charAt(i));
             if (across) { y = column + i; } else {  x = row + i; }
             if (y >= Board.boardSize || x >= Board.boardSize) {
-                errorMessage = "Sorry, '" + word + "' is too big for that spot.";
+                errorMessage = wordTooBig;
                 return false;
             }
             BoardSpace current_space = board.getSpace(x,y);
@@ -167,7 +173,6 @@ public class Move implements Serializable {
         }
         return false;
     }
-
 
     public boolean checkMove() {
         //all certify___ methods must return true

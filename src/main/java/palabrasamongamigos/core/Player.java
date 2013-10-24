@@ -48,12 +48,15 @@ public class Player implements Serializable, Comparable<Player > {
     public void setName(String name) {
         this.name = name;
     }
-    public ArrayList<Tile> getTiles(){
+    public ArrayList<Tile> getCopyOfTiles(){
         ArrayList<Tile> tiles_copy = new ArrayList<Tile>();
         for (Tile tile : this.tiles) {
             tiles_copy.add(tile);
         }
         return tiles_copy;
+    }
+    public ArrayList<Tile> getTiles(){
+        return tiles;
     }
     public int getScore() {
         return score;

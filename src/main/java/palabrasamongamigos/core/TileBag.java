@@ -36,4 +36,13 @@ public class TileBag implements Serializable{
         return tiles.remove(random_index);
     }
 
+    public Tile getTileByChar(String character){
+        for (Tile t : tiles){
+            if ( t.getCharacter().equals(character) ) {
+                return t;
+            }
+        }
+        return new Tile(null, 0);
+    }
+
 }

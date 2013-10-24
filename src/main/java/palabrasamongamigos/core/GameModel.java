@@ -148,6 +148,17 @@ public class GameModel implements Serializable{
         return System.currentTimeMillis();
     }
 
+    //for testing purposes only
+    public void setTileRack(ArrayList<String> characters, Player player) {
+        while (player.getTiles().size() > 0){
+            Tile t = player.getTiles().get(0);
+            tileBag.addTile(t);
+            player.getTiles().remove(0);
+        }
+        for (String character : characters)  {
+            player.addTile(tileBag.getTileByChar(character));
+        }
+    }
 
 }
 
