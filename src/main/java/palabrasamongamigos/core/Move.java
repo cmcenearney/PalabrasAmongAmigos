@@ -33,7 +33,7 @@ public class Move implements Serializable {
     //string error messages
     public static final String firstMoveCenterTile = "Error - the first move must touch the center tile (H,8).";
     public static final String invalidWord = "Not a valid word (in our dictionary)";
-    public static final String genericError = "Error - move not valid";
+    public static final String genericError = "MOVE_NOT_VALID";
     public static final String wordTooBig = "Sorry, your word  is too big for that spot.";
 
     //constructor(s)

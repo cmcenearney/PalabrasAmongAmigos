@@ -7,3 +7,4 @@ target/*
 .idea
 *.iml
 /target
+do_not_upload*

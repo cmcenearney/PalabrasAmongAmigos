@@ -200,7 +200,8 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
         if (xhr.responseJSON.errorMsg != null ){
           alert(xhr.responseJSON.errorMsg); 
         }
-        fetchGameAndUpdate(model);
+        alert(data, xhr.responseJSON);
+        //fetchGameAndUpdate(model);
       });  
   },
 
