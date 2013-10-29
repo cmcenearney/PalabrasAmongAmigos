@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
 import palabrasamongamigos.core.GameModel;
+import palabrasamongamigos.core.PalabrasModel;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -43,7 +44,7 @@ public enum DatabaseAccessor implements DatabaseAccess{
         return collection;
     }
 
-    public GameModel getById(long id){
+    public PalabrasModel getById(long id){
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", id);
         BasicDBObject fields = new BasicDBObject("_id",false);
@@ -71,11 +72,15 @@ public enum DatabaseAccessor implements DatabaseAccess{
         return game;
     }
 
-    public void saveGame(GameModel game){
+    //TODO - better to setup mongo to enforce uniqueness for 'id' ?
+    public void save(PalabrasModel model){
         ObjectMapper mapper = new ObjectMapper();
+        if ( isInDb(model) ){
+            delete(model);
+        }
         String json = "";
         try {
-            json = mapper.writeValueAsString(game);
+            json = mapper.writeValueAsString(model);
         } catch (Exception e){
             System.out.println(e);
         }
@@ -83,12 +88,22 @@ public enum DatabaseAccessor implements DatabaseAccess{
         collection.insert(gameDoc);
     }
 
-    public void deleteGame(GameModel game){
+    public void delete(PalabrasModel model){
         ObjectMapper mapper = new ObjectMapper();
-        BasicDBObject query = new BasicDBObject("id", game.getId());
+        BasicDBObject query = new BasicDBObject("id", model.getId());
         BasicDBObject fields = new BasicDBObject("_id",false);
         DBObject target = collection.findOne(query,fields);
         collection.remove(target);
 
+    }
+
+    public boolean isInDb(PalabrasModel model) {
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject query = new BasicDBObject("id", model.getId());
+        BasicDBObject fields = new BasicDBObject("_id",false);
+        if ( collection.find(query,fields).size() > 0 ){
+            return true;
+        }
+        return false;
     }
 }

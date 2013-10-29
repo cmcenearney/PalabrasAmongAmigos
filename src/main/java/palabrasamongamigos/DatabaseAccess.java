@@ -1,13 +1,16 @@
 package palabrasamongamigos;
 
 import palabrasamongamigos.core.GameModel;
+import palabrasamongamigos.core.PalabrasModel;
 
 public interface DatabaseAccess {
 
-    GameModel getById(long id);
+    PalabrasModel getById(long id);
 
-    void saveGame(GameModel game);
+    void save(PalabrasModel model);
 
-    void deleteGame(GameModel game);
+    void delete(PalabrasModel model);
+
+    boolean isInDb(PalabrasModel model);
 
 }

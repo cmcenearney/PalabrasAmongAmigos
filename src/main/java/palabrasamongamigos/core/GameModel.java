@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GameModel implements Serializable{
+public class GameModel extends PalabrasModel implements Serializable{
 
     //attributes
     public static final int num_tiles = 7;
@@ -23,8 +23,6 @@ public class GameModel implements Serializable{
     private List<Player> players = new ArrayList<Player>();
     @JsonProperty
     private List<Move> moves = new ArrayList<Move>();
-    @JsonProperty
-    private Integer numPlayers = 2;
     @JsonProperty
     private Integer currentTurn = 0;
     @JsonProperty
@@ -55,11 +53,9 @@ public class GameModel implements Serializable{
         return players;
     }
     public Integer getNumPlayers() {
-        return numPlayers;
+        return players.size();
     }
-    public void setNumPlayers(int n) {
-        this.numPlayers=n;
-    }
+
     public Integer getCurrentTurn() {
         return currentTurn;
     }
@@ -143,10 +139,11 @@ public class GameModel implements Serializable{
         return this.dictionary.validWord(word.toUpperCase());
     }
 
-    //good enough for now
+    /*
     long produceUniqueID(){
         return System.currentTimeMillis();
     }
+      */
 
     //for testing purposes only
     public void setTileRack(ArrayList<String> characters, Player player) {

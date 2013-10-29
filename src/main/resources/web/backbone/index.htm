@@ -162,10 +162,12 @@ Palabras.Views.ScoresView = Backbone.View.extend({
 
 
 Palabras.Views.CurrentPlayerView = Backbone.View.extend({
+  
   initialize: function(){
     this.currentPlayer = this.model.get('players')[this.model.get('currentTurn')];
     this.tiles = this.currentPlayer.tiles;
   },
+  
   id: "player_move",
   events: {
     "click #shuffle_btn": "shuffleTiles",
@@ -197,11 +199,8 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
         processData: false,
         dataType: 'json'
     }).done(function( data, status, xhr ) {
-        if (xhr.responseJSON.errorMsg != null ){
-          alert(xhr.responseJSON.errorMsg); 
-        }
-        alert(data, xhr.responseJSON);
-        //fetchGameAndUpdate(model);
+        updateModel(data,appGame);
+        updateViews();
       });  
   },
 
@@ -217,7 +216,9 @@ Palabras.Views.CurrentPlayerView = Backbone.View.extend({
   },
 
   render: function(){
-    tiles = this.tiles;
+    this.currentPlayer = this.model.get('players')[this.model.get('currentTurn')];
+    tiles = this.currentPlayer.tiles;
+    //tiles = this.tiles;
     var rendered = "<h5>Player " + (this.model.get('currentTurn')+1) + ", it's your move:</h5>\n<table id='tile_rack'><tr>";
     for (var i=0; i < tiles.length; i++){
       rendered += "<td>" + tiles[i].character + "<sub>" + tiles[i].points + "</sub></td>";
@@ -270,7 +271,17 @@ Palabras.Views.BoardView = Backbone.View.extend({
 
 //spaghetti
 var appGame = new Object();
+var appScores = new Object();
+var appBoardView = new Object();
+var appCurrentPlayerView = new Object();
 
+function updateModel(serverData, model){
+    k = _.keys(serverData)
+    for (var i = 0; i < k.length; i++){
+        key = k[i];
+        model.set(key, serverData[key]);
+    }
+};
 
 function startNewGame(){ 
   userEmail = $('#user_email').val(); 
@@ -283,11 +294,40 @@ function startNewGame(){
     data: { opponentEmail: opponentEmail, userEmail: userEmail }
   }).done(function( data, status, xhr ) {
     appGame = new Palabras.Models.Game({id:  xhr.responseJSON.id});
-    fetchGameAndUpdate(appGame);
+    updateModel(data,appGame);
+    //appGame = new Palabras.Models.Game({id:  xhr.responseJSON.id});
+    appScores = new Palabras.Views.ScoresView({ model: appGame });
+    appBoardView = new Palabras.Views.BoardView({ model: appGame.get('board') });
+    appCurrentPlayerView = new Palabras.Views.CurrentPlayerView({ model: appGame });
+    updateViews();
+    //fetchGameAndUpdate(appGame);
   });
 
 };
 
+function updateViews() {
+
+  if (appGame.get('errorMsg') != null ){
+    alert(appGame.get('errorMsg'));
+  };
+  
+  appScores = new Palabras.Views.ScoresView({ model: appGame });
+  appBoardView = new Palabras.Views.BoardView({ model: appGame.get('board') });
+  appCurrentPlayerView = new Palabras.Views.CurrentPlayerView({ model: appGame });
+
+  appScores.render();
+  appCurrentPlayerView.render();
+  appBoardView.render();
+
+  $('#player_move').replaceWith(appCurrentPlayerView.el);   
+  $('#board').replaceWith(appBoardView.el);
+  $('#scoreboard').replaceWith(appScores.el);
+  $("#move_input").focus();
+
+
+};
+
+/*
 function fetchGameAndUpdate(game) {
   game.fetch({
 
@@ -316,6 +356,9 @@ function fetchGameAndUpdate(game) {
     }
   })
 };
+*/
+
+
 
 </script>
 
