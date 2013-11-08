@@ -6,7 +6,7 @@ import com.mongodb.DBCollection;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
-import palabrasamongamigos.MongoResource;
+import palabrasamongamigos.DatabaseAccessor;
 import java.io.IOException;
 
 public class MoveTest {
@@ -16,7 +16,7 @@ public class MoveTest {
     @Before
     public void loadFailedGame(){
         final long id = 1381229484877l;
-        MongoResource mongo = MongoResource.INSTANCE;
+        DatabaseAccessor mongo = DatabaseAccessor.INSTANCE;
         DBCollection coll =  mongo.getCollection();
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", id);

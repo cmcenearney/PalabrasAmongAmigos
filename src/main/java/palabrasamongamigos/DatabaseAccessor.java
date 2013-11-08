@@ -7,6 +7,7 @@ import com.mongodb.*;
 import com.mongodb.util.JSON;
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.PalabrasModel;
+import palabrasamongamigos.core.SessionModel;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -44,7 +45,7 @@ public enum DatabaseAccessor implements DatabaseAccess{
         return collection;
     }
 
-    public PalabrasModel getById(long id){
+    public GameModel getGameById(long id){
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", id);
         BasicDBObject fields = new BasicDBObject("_id",false);
@@ -72,6 +73,35 @@ public enum DatabaseAccessor implements DatabaseAccess{
         return game;
     }
 
+
+    public SessionModel getSessionById(long id){
+        ObjectMapper mapper = new ObjectMapper();
+        BasicDBObject query = new BasicDBObject("id", id);
+        BasicDBObject fields = new BasicDBObject("_id",false);
+        String dbJson = collection.findOne(query,fields).toString();
+        SessionModel session = new SessionModel();
+        //System.out.println(id);
+        //System.out.println(game.getId());
+        try {
+            session = mapper.readValue(dbJson, SessionModel.class);
+            //System.out.println(game.getId());
+        }
+        //TODO log exceptions
+        catch (JsonMappingException e) {
+            System.out.println("mapping exception:");
+            System.out.println(e);
+            System.out.println(e.getPath());
+        }
+        catch (JsonParseException e) {
+            System.out.println("parse exception:");
+            System.out.println(e);
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
+        return session;
+    }
+
     //TODO - better to setup mongo to enforce uniqueness for 'id' ?
     public void save(PalabrasModel model){
         ObjectMapper mapper = new ObjectMapper();
@@ -84,8 +114,8 @@ public enum DatabaseAccessor implements DatabaseAccess{
         } catch (Exception e){
             System.out.println(e);
         }
-        DBObject gameDoc = (DBObject) JSON.parse(json);
-        collection.insert(gameDoc);
+        DBObject modelDoc = (DBObject) JSON.parse(json);
+        collection.insert(modelDoc);
     }
 
     public void delete(PalabrasModel model){

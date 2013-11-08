@@ -1,9 +1,10 @@
 package palabrasamongamigos.resources;
 
 import palabrasamongamigos.DatabaseAccessor;
-import palabrasamongamigos.core.Email;
+import palabrasamongamigos.core.SimpleEmail;
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.Player;
+
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -27,9 +28,9 @@ public class NewGameResource {
         newGame.addPlayer(user);
         newGame.addPlayer(opponent);
         String messageToOpponent = "";
-        Email emailer = new Email(opponentEmail, messageToOpponent);
-        emailer.sendEmail();
-        db.saveGame(newGame);
+        SimpleEmail emailer = new SimpleEmail();
+        emailer.sendMail();
+        db.save(newGame);
         return newGame;
     }
 

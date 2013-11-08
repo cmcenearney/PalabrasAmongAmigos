@@ -8,7 +8,7 @@ import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 
 import org.junit.Test;
-import palabrasamongamigos.MongoResource;
+import palabrasamongamigos.DatabaseAccessor;
 import java.io.IOException;
 import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
 import static org.junit.Assert.assertEquals;
@@ -22,7 +22,7 @@ public class GameInGameOut {
     @Test
     public void sameInAsOutNewGame(){
         System.out.println(game.getId());
-        MongoResource mongo = MongoResource.INSTANCE;
+        DatabaseAccessor mongo = DatabaseAccessor.INSTANCE;
         DBCollection coll =  mongo.getCollection();
         ObjectMapper mapper = new ObjectMapper();
         String jsonIn = "";
@@ -67,7 +67,7 @@ public class GameInGameOut {
     public void readSetErrMsgSave(){
         //read from db
         long id = 1381264532488l;
-        MongoResource mongo = MongoResource.INSTANCE;
+        DatabaseAccessor mongo = DatabaseAccessor.INSTANCE;
         DBCollection coll =  mongo.getCollection();
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", id);

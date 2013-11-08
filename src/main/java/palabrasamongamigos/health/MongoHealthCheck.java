@@ -1,13 +1,14 @@
 package palabrasamongamigos.health;
 
 import com.yammer.metrics.core.HealthCheck;
-import palabrasamongamigos.MongoResource;
+import palabrasamongamigos.DatabaseAccessor;
+
 
 public class MongoHealthCheck extends HealthCheck {
 
-    private final MongoResource mongo;
+    private final DatabaseAccessor mongo;
 
-    public MongoHealthCheck(MongoResource mongo){
+    public MongoHealthCheck(DatabaseAccessor mongo){
         super("mongo");
         this.mongo = mongo;
     }

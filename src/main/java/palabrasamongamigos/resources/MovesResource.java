@@ -5,6 +5,7 @@ import palabrasamongamigos.DatabaseAccessor;
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.Move;
 import palabrasamongamigos.core.MoveProposal;
+import palabrasamongamigos.core.PalabrasModel;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -24,7 +25,7 @@ public class MovesResource {
         //doing this because instantiation default upper-cases moveString - the json data remains "virtual", no instantiation
         MoveProposal moveProObject = new MoveProposal(moveProposal.getId(),moveProposal.getMoveString(),moveProposal.getMoveNumber(),moveProposal.getCurrentTurn());
 
-        GameModel game = db.getById(moveProObject.getId());
+        GameModel game = db.getGameById(moveProObject.getId());
 
         //TODO: these are application errors and the http response should have appropriate code
         // error message should be part of response, not game object
@@ -47,7 +48,7 @@ public class MovesResource {
         } else {
             game.setErrorMsg(move.getErrorMessage());
         }
-        db.saveGame(game);
+        db.save(game);
         return game;
     }
 

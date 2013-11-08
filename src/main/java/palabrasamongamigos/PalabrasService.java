@@ -10,7 +10,7 @@ import palabrasamongamigos.resources.*;
 
 public class PalabrasService extends Service<PalabrasConfiguration> {
 
-    private final MongoResource mongoResource = MongoResource.INSTANCE;
+    private final DatabaseAccessor mongoResource = DatabaseAccessor.INSTANCE;
 
     public static void main(String[] args) throws Exception {
         new PalabrasService().run(args);

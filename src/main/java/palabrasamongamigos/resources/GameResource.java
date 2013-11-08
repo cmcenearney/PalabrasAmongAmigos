@@ -18,13 +18,13 @@ public class GameResource {
     @GET
     public GameModel getGame(@PathParam("id") LongParam idParam) {
         final long id = idParam.get();
-        return db.getById(id);
+        return db.getGameById(id);
     }
 
     @POST
     public GameModel getPlayerViewGame(@PathParam("id") LongParam idParam, @FormParam("userEmail") String userEmail) {
         final long id = idParam.get();
-        GameModel game = db.getById(id);
+        GameModel game = db.getGameById(id);
         //TODO: filter out tiles of all players but the requesting player
         return game;
     }

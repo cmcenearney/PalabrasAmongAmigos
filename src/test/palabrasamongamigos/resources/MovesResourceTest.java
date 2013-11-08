@@ -34,7 +34,7 @@ public class MovesResourceTest {
         String[] words2 = {"B", "A", "D", "A", "S", "S", "S"};
         ArrayList<String> playerTwoFirstRack = new ArrayList<String>(Arrays.asList(words2));
         game.setTileRack(playerTwoFirstRack,player2);
-        db.saveGame(game);
+        db.save(game);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class MovesResourceTest {
 
     @After
     public void cleanUp(){
-        db.deleteGame(game);
+        db.delete(game);
     }
 }
      /*

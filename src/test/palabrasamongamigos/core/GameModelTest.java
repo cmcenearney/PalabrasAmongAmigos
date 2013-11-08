@@ -6,7 +6,7 @@ import com.mongodb.DBCollection;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
-import palabrasamongamigos.MongoResource;
+import palabrasamongamigos.DatabaseAccessor;
 import java.io.IOException;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -33,7 +33,7 @@ public class GameModelTest {
     @Test
     public void testGetFromMongo(){
         final long testID = 1381180168680l;
-        MongoResource mongo = MongoResource.INSTANCE;
+        DatabaseAccessor mongo = DatabaseAccessor.INSTANCE;
         DBCollection coll =  mongo.getCollection();
         ObjectMapper mapper = new ObjectMapper();
         BasicDBObject query = new BasicDBObject("id", testID);

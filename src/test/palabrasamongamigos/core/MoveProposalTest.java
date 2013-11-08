@@ -6,14 +6,14 @@ import com.mongodb.DBCollection;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
-import palabrasamongamigos.MongoResource;
+import palabrasamongamigos.DatabaseAccessor;
 import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 
 
 public class MoveProposalTest {
 
-    protected MongoResource mongo = MongoResource.INSTANCE;
+    protected DatabaseAccessor mongo = DatabaseAccessor.INSTANCE;
     protected DBCollection coll =  mongo.getCollection();
     GameModel game = new GameModel();
 

@@ -2,10 +2,13 @@ package palabrasamongamigos;
 
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.PalabrasModel;
+import palabrasamongamigos.core.SessionModel;
 
 public interface DatabaseAccess {
 
-    PalabrasModel getById(long id);
+    PalabrasModel getGameById(long id);
+
+    SessionModel getSessionById(long id);
 
     void save(PalabrasModel model);
 
