@@ -1,7 +1,7 @@
 package palabrasamongamigos.resources;
 
 import palabrasamongamigos.DatabaseAccessor;
-import palabrasamongamigos.core.SimpleEmail;
+
 import palabrasamongamigos.core.GameModel;
 import palabrasamongamigos.core.Player;
 
@@ -28,8 +28,8 @@ public class NewGameResource {
         newGame.addPlayer(user);
         newGame.addPlayer(opponent);
         String messageToOpponent = "";
-        SimpleEmail emailer = new SimpleEmail();
-        emailer.sendMail();
+        //SimpleEmail emailer = new SimpleEmail();
+        //emailer.sendMail();
         db.save(newGame);
         return newGame;
     }
